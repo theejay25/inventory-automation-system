@@ -1,6 +1,16 @@
 
-6/17/2025, 4:02:33 PM 
-POST 
-http://localhost:8080:/signup 
-[object Object] 
+6/17/2025, 6:48:39 PM 
+GET http://localhost:8080/signup 
+
+
+6/17/2025, 6:49:42 PM 
+GET http://localhost:8080/signup 
+
+
+6/17/2025, 6:54:42 PM 
+GET http://localhost:8080/signup 
+
+
+6/17/2025, 6:55:25 PM 
+POST http://localhost:8080/signup 
 

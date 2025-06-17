@@ -1,6 +1,7 @@
 import Users from '../models/users.js'
 import bcrypt from 'bcrypt'
 import {verificationToken} from '../utils/verificationToken.js'
+import { verifyMail } from '../email/email.js'
 
 export const test =  (req,res)=> {
 try {
@@ -31,11 +32,14 @@ try {
             email, 
             password: hashedPassword, 
             verificationToken: theverificationToken, 
-            verifiedTokenExpiresAT: Date.now() + 24 * 60 * 60 * 1000 // Token valid for 24 hours
+            verifiedTokenExpiresAT: Date.now() + 1 * 60 * 60 * 1000 // Token valid for 1 hours
         })
         
         await newUser.save()
         
+        await verifyMail(newUser.email, 'Verify Your Email Account',  `<h1> Your Verification Token is</h1><br /> <h1>123456</h1> `)
+
+
         return res.status(200).json({
             success: true, 
             message: 'User successfully created',
