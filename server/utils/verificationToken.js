@@ -1,1 +1,3 @@
-export const verificationToken = () => {Math.floor(10000 + Math.random() * 90000)}
+export const verificationToken = () => {
+    return Math.floor(10000 + Math.random() * 90000
+)}

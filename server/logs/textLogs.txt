@@ -14,3 +14,147 @@ GET http://localhost:8080/signup
 6/17/2025, 6:55:25 PM 
 POST http://localhost:8080/signup 
 
+
+6/18/2025, 1:51:27 PM 
+GET http://localhost:8080/test 
+
+
+6/18/2025, 1:52:20 PM 
+GET http://localhost:8080/test 
+
+
+6/18/2025, 1:52:22 PM 
+GET http://localhost:8080/test 
+
+
+6/18/2025, 2:01:52 PM 
+GET http://localhost:8080/api/auth/users 
+
+
+6/18/2025, 2:05:58 PM 
+POST http://localhost:8080/api/auth/signup 
+
+
+6/18/2025, 2:06:38 PM 
+POST http://localhost:8080/api/auth/signup 
+
+
+6/18/2025, 2:10:04 PM 
+POST http://localhost:8080/api/auth/signup 
+
+
+6/18/2025, 2:21:19 PM 
+GET http://192.168.216.17:8080/ 
+
+
+6/18/2025, 2:21:20 PM 
+POST http://localhost:8080/api/auth/signup 
+
+
+6/18/2025, 2:21:30 PM 
+GET http://192.168.216.17/HNAP1/ 
+
+
+6/18/2025, 2:21:37 PM 
+GET http://192.168.216.17:8080/ 
+
+
+6/18/2025, 2:21:42 PM 
+GET http://192.168.216.17/loginMsg.js 
+
+
+6/18/2025, 2:21:42 PM 
+GET http://192.168.216.17/cgi/get.cgi?cmd=home_login 
+
+
+6/18/2025, 2:23:07 PM 
+GET http://localhost:8080/api/auth/users 
+
+
+6/18/2025, 2:25:08 PM 
+GET http://localhost:8080/api/auth/users 
+
+
+6/18/2025, 2:28:25 PM 
+GET http://localhost:8080/api/auth/users?name=jude 
+
+
+6/18/2025, 2:31:44 PM 
+GET http://localhost:8080/api/auth/users?name=jude 
+
+
+6/18/2025, 2:32:48 PM 
+GET http://localhost:8080/api/auth/users?name=jude 
+
+
+6/18/2025, 2:36:16 PM 
+GET http://localhost:8080/api/auth/users 
+
+
+6/18/2025, 2:36:41 PM 
+GET http://localhost:8080/api/auth/users 
+
+
+6/18/2025, 2:37:04 PM 
+GET http://localhost:8080/api/auth/users 
+
+
+6/18/2025, 5:39:02 PM 
+POST http://localhost:8080/api/auth/signup?= 
+
+
+6/18/2025, 5:39:28 PM 
+POST http://localhost:8080/api/auth/signup?= 
+
+
+6/18/2025, 5:39:34 PM 
+POST http://localhost:8080/api/auth/signup?= 
+
+
+6/18/2025, 5:56:34 PM 
+POST http://localhost:8080/api/auth/signup?= 
+
+
+6/18/2025, 6:35:03 PM 
+POST http://localhost:8080/api/auth/signup 
+
+
+6/18/2025, 6:36:16 PM 
+POST http://localhost:8080/api/auth/verify-email 
+
+
+6/18/2025, 6:37:37 PM 
+POST http://localhost:8080/api/auth/verify-email 
+
+
+6/18/2025, 6:38:50 PM 
+POST http://localhost:8080/api/auth/verify-email 
+
+
+6/18/2025, 6:39:34 PM 
+POST http://localhost:8080/api/auth/verify-email 
+
+
+6/18/2025, 6:40:32 PM 
+POST http://localhost:8080/api/auth/verify-email 
+
+
+6/18/2025, 6:44:33 PM 
+POST http://localhost:8080/api/auth/signup 
+
+
+6/18/2025, 6:44:53 PM 
+POST http://localhost:8080/api/auth/verify-email 
+
+
+6/18/2025, 6:47:47 PM 
+POST http://localhost:8080/api/auth/verify-email 
+
+
+6/18/2025, 6:58:14 PM 
+POST http://localhost:8080/api/auth/verify-email 
+
+
+6/18/2025, 6:58:32 PM 
+POST http://localhost:8080/api/auth/signup 
+

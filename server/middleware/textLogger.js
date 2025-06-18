@@ -20,10 +20,12 @@ export const textLogger = async (req, res, next) => {
 
     await fs.appendFile(logFilePath, logEntry)
 
-    console.log(logEntry)
+    console.log(`${date()} \n${req.method} ${fullUrl} \n`)
   } catch (error) {
     console.log(error)
   }
 
   next()
 }
+
+

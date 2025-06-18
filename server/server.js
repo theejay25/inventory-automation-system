@@ -9,6 +9,7 @@ import mongooseConnect from './db/MongoDbConnect.js'
 //utilities and middleware
 import {date} from './utils/getDates.js'
 import { textLogger } from './middleware/textLogger.js'
+import { cleanUp } from './jobs/scheduleCleanUp.js'
 
 //routes
 import router from './routes/authRoutes.js'
@@ -23,7 +24,9 @@ const app = express()
 app.use(textLogger)
 app.use(express.json())
 app.use(cors(homePort))
-app.use(router)
+app.use('/api/auth', router)
+
+cleanUp()
 
 app.get('/fruits', (req, res) => {
     res.json({
