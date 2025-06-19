@@ -4,6 +4,7 @@ import { date } from '../utils/getDates.js';
 import fs from 'fs/promises'
 import { fileURLToPath } from 'url'
 import path from 'path';
+import { welcomemailTemplate } from '../templates/welcomeMailTemplate.js';
 
 // Needed for __dirname in ES modules
 const __filename = fileURLToPath(import.meta.url)
@@ -50,6 +51,29 @@ export const verifyMail = async (email, subject, verificationToken) => {
             to: email,
             subject: subject,
             html: verificationToken
+        })
+
+        await fs.appendFile(`${emailLogFilePath}`, `Email sent to ${email} at ${date()} \n\n`)
+
+        console.log(`Email sent to ${email} at ${date()}`)
+
+    } catch (error) {
+        await fs.appendFile(`${errorLogFilePath}`, `Error sending email to ${email} at ${date()} \n\n`)
+        console.log(error)
+        throw error
+    }
+
+}
+
+export const welcomeMail = async (email, subject, name) => {
+    
+    try {
+        
+        await transporter.sendMail({
+            from: process.env.USER,
+            to: email,
+            subject: subject,
+            html: welcomemailTemplate.replace('{email}', name.toUppercase())
         })
 
         await fs.appendFile(`${emailLogFilePath}`, `Email sent to ${email} at ${date()} \n\n`)

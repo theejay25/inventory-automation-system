@@ -1,7 +1,8 @@
 import Users from '../models/users.js'
 import bcrypt from 'bcrypt'
 import {verificationToken} from '../utils/verificationToken.js'
-import { verifyMail } from '../email/email.js'
+import { verifyMail, welcomeMail } from '../email/email.js'
+import { generateJWTToken } from '../utils/generateJWTToken.js'
 
 export const test =  (req,res)=> {
 try {
@@ -137,3 +138,39 @@ export const verifyEmail = async (req, res) => {
     });
   }
 };
+
+
+//route @ api/auth/login
+//user login route
+export const login = async (req , res) => {
+  const { email, password } = req.body
+
+  try {
+    
+    const existingUser = await Users.findOne({email})
+
+    if(!existingUser) {
+        return res.status(400).json({success: false, message: "User with this email does not exist"})
+    }
+
+    const isPasswordCorrect = await bcrypt.compare(password, existingUser.password)
+
+    if(!isPasswordCorrect) {
+        return res.status(400).json({success: false, message: "Password does not match"})
+    }
+
+    if(!existingUser.isVerified) {
+        return res.status(400).json({success: false, message: "Please verify your email first"})
+    }
+
+    generateJWTToken(res, existingUser._id)
+
+    await welcomeMail(existingUser.email, 'Welcome To Stocks', existingUser.name)
+
+    res.status(200).json({success: true, message:'Login Successful'})
+
+  } catch (error) {
+    res.status(400).json({success: false, message: 'Error occured in login'})
+    
+  }
+} 
