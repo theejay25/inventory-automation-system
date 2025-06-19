@@ -88,3 +88,26 @@ export const welcomeMail = async (email, subject, name) => {
 
 }
 
+export const passwordResetMail = async (email, subject, resetURL) => {
+    
+    try {
+        
+        await transporter.sendMail({
+            from: process.env.USER,
+            to: email,
+            subject: subject,
+            html: `Click <a href='${resetURL}'>Here</a> to reset your password`
+        })
+
+        await fs.appendFile(`${emailLogFilePath}`, `Email sent to ${email} at ${date()} \n\n`)
+
+        console.log(`Email sent to ${email} at ${date()}`)
+
+    } catch (error) {
+        await fs.appendFile(`${errorLogFilePath}`, `Error sending email to ${email} at ${date()} \n\n`)
+        console.log(error)
+        throw error
+    }
+
+}
+

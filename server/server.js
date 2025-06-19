@@ -13,6 +13,7 @@ import { cleanUp } from './jobs/scheduleCleanUp.js'
 
 //routes
 import router from './routes/authRoutes.js'
+import adminRouter from './routes/admin/adminRoutes.js'
 
 const homePort = ['http://localhost:5173', 'http://localhost:514']
 
@@ -25,6 +26,7 @@ app.use(textLogger)
 app.use(express.json())
 app.use(cors(homePort))
 app.use('/api/auth', router)
+app.use('/api/admin', adminRouter)
 
 cleanUp()
 

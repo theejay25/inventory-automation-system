@@ -178,3 +178,15 @@ POST http://localhost:8080/api/auth/login
 6/19/2025, 2:48:16 AM 
 POST http://localhost:8080/api/auth/login 
 
+
+6/19/2025, 1:13:55 PM 
+POST http://localhost:8080/api/auth/forgot-password 
+
+
+6/19/2025, 1:14:47 PM 
+POST http://localhost:8080/api/auth/forgot-password 
+
+
+6/19/2025, 1:33:14 PM 
+GET http://localhost:8080/api/admin/users 
+

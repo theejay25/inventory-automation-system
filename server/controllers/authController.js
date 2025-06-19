@@ -1,8 +1,9 @@
 import Users from '../models/users.js'
 import bcrypt from 'bcrypt'
 import {verificationToken} from '../utils/verificationToken.js'
-import { verifyMail, welcomeMail } from '../email/email.js'
+import { passwordResetMail, verifyMail, welcomeMail } from '../email/email.js'
 import { generateJWTToken } from '../utils/generateJWTToken.js'
+import crypto from 'crypto'
 
 export const test =  (req,res)=> {
 try {
@@ -11,52 +12,6 @@ try {
     console.log(error)
 }
 }
-
-// @route   GET /api/auth/all-users
-// @desc    Get all users
-export const getAllUsers = async (req, res) => {
-  try {
-    const users = await Users.find();
-    res.status(200).json({
-      message: 'All users retrieved successfully',
-      users,
-    });
-  } catch (error) {
-    console.error(error);
-    res.status(500).json({
-      message: 'Failed to retrieve users',
-      error: error.message,
-    });
-  }
-};
-
-
-// @route   GET /api/auth/users
-// @desc    Get users by name
-export const getUsersByName = async (req, res) => {
-  try {
-    const name = req.query.name;
-
-    if (!name) {
-      return res.status(400).json({ message: 'Name query is required' });
-    }
-
-    const users = await Users.find({ name });
-
-    res.status(200).json({
-      message: 'Authorized for route',
-      users,
-    });
-
-  } catch (error) {
-    console.error(error);
-    res.status(500).json({
-      message: 'Something went wrong while fetching users',
-      error: error.message,
-    });
-  }
-};
-
 
 //route @ api/auth/signup
 //desc add a new user
@@ -174,3 +129,33 @@ export const login = async (req , res) => {
     
   }
 } 
+
+//route @ api/auth/forgot-password
+//description send User reset password
+export const forgotPassword = async (req, res) => {
+try {
+    const {email} = req.body
+  
+    const existingUser = await Users.findOne({email})
+  
+    if(!existingUser) {
+      return res.status(400).json({success: false, message: 'User does not exist'})
+    }
+  
+    const resetPasswordToken = crypto.randomByte(32).toString('hex')
+    const resetPasswordTokenExpiresAt = Date.now() + 1 * 60 * 60 * 1000 //expires in 1hr
+    existingUser.resetPasswordToken = resetPasswordToken
+    existingUser.resetPasswordTokenExpiresAt = resetPasswordTokenExpiresAt
+  
+    await existingUser.save()
+  
+    await passwordResetMail(existingUser.email, 'Reset Your Password', `${process.env.CLIENT_URL}/reset-password/${resetPasswordToken}`)
+  
+    res.status(200).json({success: true, message: 'Reset token has been sent to email'})
+} catch (error) {
+  res.status(500).json({success: false, message: 'Error in sending Reset passwor link'})
+  console.log(error)
+  throw error
+}
+
+}

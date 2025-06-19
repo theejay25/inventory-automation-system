@@ -1,5 +1,5 @@
 import express from "express";
-import { getAllUsers, getUsersByName, login, signup, test, verifyEmail } from "../controllers/authController.js";
+import { forgotPassword, login, signup, test, verifyEmail } from "../controllers/authController.js";
 
 const router = express.Router()
 
@@ -12,13 +12,11 @@ router.post('/signup', signup)
 //verify account route
 router.post('/verify-email',  verifyEmail)
 
+//User forgot password 
+router.post('/forgot-password', forgotPassword)
+
 //login route
 router.post('/login', login)
 
-//get users by name
-router.get('/user', getUsersByName)
-
-//get all users
-router.get('/users', getAllUsers)
 
 export default router
