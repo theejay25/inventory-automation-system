@@ -2,6 +2,7 @@
 import express from 'express'
 import dotenv from 'dotenv'
 import cors from 'cors'
+import cookieParser from 'cookie-parser'
 
 //database related
 import mongooseConnect from './db/MongoDbConnect.js'
@@ -24,6 +25,7 @@ const app = express()
 
 app.use(textLogger)
 app.use(express.json())
+app.use(cookieParser())
 app.use(cors(homePort))
 app.use('/api/auth', router)
 app.use('/api/admin', adminRouter)

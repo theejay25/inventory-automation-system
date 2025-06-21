@@ -52,9 +52,9 @@ export const signup = async (req, res) => {
             success: true, 
             message: 'User successfully created',
             user: {
-              ...newUser._doc,
-               password: undefined,
-               verificationToken: undefined
+                name: newUser.name,
+                email: newUser.email,
+                id: newUser._id,
               }
         })
 } catch (error) {
@@ -126,7 +126,7 @@ export const login = async (req , res) => {
         return res.status(400).json({success: false, message: "Please verify your email first"})
     }
 
-    generateJWTToken(res, {id: newUser._id, role: newUser.role})
+    generateJWTToken(res, {id: existingUser._id, role: existingUser.role})
 
     const message = existingUser.role === 'admin' ? 'Welcome Admin' : "Welcome User"
 
@@ -137,9 +137,10 @@ export const login = async (req , res) => {
   success: true,
   message,
   user: {
-    id: existingUser._id,
     name: existingUser.name,
-    role: existingUser.role,
+    email: existingUser.email,
+    id: existingUser._id,          
+    role: existingUser.role
   }
 });
 
@@ -217,6 +218,41 @@ try {
 
 }
 
+//route @api/auth/logout
+//desc user logout
+export const logout = async (req, res) => {
+     try {
+        res.clearCookie('token'); // Clear the JWT token cookie
+        return res.status(200).json({ success: true, message: 'User logged out successfully' });
+    } catch (error) {
+        return res.status(500).json({ success: false, message: 'Internal server error', error: error.message });
+    }
+}
+
+//route @ api/auth/delete
+//desc delete user 
+export const deleteUser = async (req, res) => {
+  const { id } = req.params;
+
+  try {
+    const existingUser = await Users.findOne({ _id : id });
+
+    if (!existingUser) {
+      return res.status(400).json({ success: false, message: 'User does not exist' });
+    }
+
+    await Users.deleteOne({ _id: id });
+
+    return res.status(200).json({ success: true, message: 'User successfully deleted' });
+
+  } catch (error) {
+    console.error('Error deleting user:', error);
+    return res.status(500).json({ success: false, message: 'Error in deleting user' });
+  }
+};
+
+
+
 // export const resendToken = async (req, res) => {
 //   const {email} = req.body
 
@@ -246,3 +282,4 @@ try {
     
 //   }
 // }
+
