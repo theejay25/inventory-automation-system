@@ -24,17 +24,20 @@ export const signup = async (req, res) => {
         if(user) {
             return res.status(400).json({success: false, message: 'User with this email exists'})
         }
-
-        console.log('no  existing user found')
         
         const hashedPassword = await bcrypt.hash(password, 10)
 
         const theverificationToken = verificationToken()
 
+         // Auto-admin only if this is the first user ever
+          const isFirstUser = (await Users.countDocuments()) === 0;
+          const role = isFirstUser ? 'admin' : 'employee';
+
          const newUser = new Users({
             name, 
             email, 
             password: hashedPassword, 
+            role: role, 
             verificationToken: theverificationToken, 
             verificationTokenExpiresAt: Date.now() + 1 * 60 * 60 * 1000 // Token valid for 1 hours
         })
@@ -44,10 +47,15 @@ export const signup = async (req, res) => {
         await verifyMail(newUser.email, 'Verify Your Email Account',  `<h1> Your Verification Token is</h1><br /> <h1>${theverificationToken}</h1> `)
 
 
+
         return res.status(201).json({
             success: true, 
             message: 'User successfully created',
-            user: {...newUser._doc, password: undefined}
+            user: {
+              ...newUser._doc,
+               password: undefined,
+               verificationToken: undefined
+              }
         })
 } catch (error) {
     res.status(500).json({success: false, message: 'Something went wrong in sign up'})
@@ -118,14 +126,25 @@ export const login = async (req , res) => {
         return res.status(400).json({success: false, message: "Please verify your email first"})
     }
 
-    generateJWTToken(res, existingUser._id)
+    generateJWTToken(res, {id: newUser._id, role: newUser.role})
+
+    const message = existingUser.role === 'admin' ? 'Welcome Admin' : "Welcome User"
+
 
     await welcomeMail(existingUser.email, 'Welcome To Stocks', existingUser.name)
 
-    res.status(200).json({success: true, message:'Login Successful'})
+  res.status(200).json({
+  success: true,
+  message,
+  user: {
+    id: existingUser._id,
+    name: existingUser.name,
+    role: existingUser.role,
+  }
+});
 
   } catch (error) {
-    res.status(400).json({success: false, message: 'Error occured in login'})
+    res.status(500).json({success: false, message: 'Error occured in login'})
     
   }
 } 
@@ -142,7 +161,7 @@ try {
       return res.status(400).json({success: false, message: 'User does not exist'})
     }
   
-    const resetPasswordToken = crypto.randomByte(32).toString('hex')
+    const resetPasswordToken = crypto.randomBytes(32).toString('hex')
     const resetPasswordTokenExpiresAt = Date.now() + 1 * 60 * 60 * 1000 //expires in 1hr
     existingUser.resetPasswordToken = resetPasswordToken
     existingUser.resetPasswordTokenExpiresAt = resetPasswordTokenExpiresAt
@@ -153,9 +172,77 @@ try {
   
     res.status(200).json({success: true, message: 'Reset token has been sent to email'})
 } catch (error) {
-  res.status(500).json({success: false, message: 'Error in sending Reset passwor link'})
+  res.status(500).json({success: false, message: 'Error in sending password Reset link'})
   console.log(error)
   throw error
 }
 
 }
+
+//route @api/auth/reset-password
+//desc reset user Password
+export const resetPassword = async (req, res) => {
+  const {token} = req.params
+  const {password} = req.body
+
+try {
+    if (!token) {
+      return res.status(400).json({success: false, message: 'No reset token provided'})
+    }
+
+    const existingUser = await Users.findOne({ 
+      resetPasswordToken: token,
+      resetPasswordTokenExpiresAt: {$gt: Date.now()}
+     })
+
+    if(!existingUser) {
+      return res.status(400).json({success: false, message: 'User does not exist'})
+    }
+
+    const hashedPassword = await bcrypt.hash(password, 10)
+
+    existingUser.password = hashedPassword;
+    existingUser.resetPasswordToken = undefined
+    existingUser.resetPasswordTokenExpiresAt = undefined
+
+    await existingUser.save()
+
+    res.status(200).json({success: true, message: 'Password successfully reset'})
+} catch (error) {
+  console.log(error)
+  res.status(500).json({success: false, message: 'Unsuccessful password reset'})
+  throw error
+}
+
+
+}
+
+// export const resendToken = async (req, res) => {
+//   const {email} = req.body
+
+//   try {
+    
+//     const existingUser = await Users.findOne({email})
+
+//     if(!existingUser) {
+//       return res.status(500).json({success: false, message: 'user with this email does not exist'})
+//     }
+
+//     const resetPasswordToken = crypto.randomBytes(32).toString('hex')
+//     const resetPasswordTokenExpiresAt = Date.now() + 1 * 60 * 60
+
+//     existingUser.resetPasswordToken = resetPasswordToken
+//     existingUser.resetPasswordTokenExpiresAt = resetPasswordTokenExpiresAt
+
+//     await existingUser.save()
+
+//     await passwordResetMail(
+//       existingUser.email,
+//       "Reset Your Account Password",
+//       `${process.env.CLIENT_URL}/reset`
+//     )
+
+//   } catch (error) {
+    
+//   }
+// }

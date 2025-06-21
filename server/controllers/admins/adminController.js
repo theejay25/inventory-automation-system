@@ -1,6 +1,6 @@
 import Users from '../../models/users.js'
 
-// @route   GET /api/auth/all-users
+// @route   GET /api/admin/all-users
 // @desc    Get all users
 export const getAllUsers = async (req, res) => {
   try {
@@ -18,7 +18,7 @@ export const getAllUsers = async (req, res) => {
   }
 };
 
-// @route   GET /api/auth/users
+// @route   GET /api/admin/users
 // @desc    Get users by name
 export const getUsersByName = async (req, res) => {
   try {
@@ -43,3 +43,6 @@ export const getUsersByName = async (req, res) => {
     });
   }
 };
+
+//@route PUT /api/admin/:id
+//desc update user info

@@ -3,14 +3,21 @@ import dotenv from 'dotenv'
 
 dotenv.config()
 
-export const generateJWTToken = async ( res, userid ) => {
-    const token = jwt.sign({id: userid}, process.env.USER_SECRET, {expiresIn: '1h'})
+export const generateJWTToken = (res, user) => {
 
-    res.cookie('token', token, {
-        httpOnly: true,
-        secure: process.env.NODE_ENV === 'production', // Use secure cookies in production
-        sameSite: 'strict', // Helps prevent CSRF attacks
-        maxAge: 24 * 60 * 60 * 1000 // 1 day
-    });
-     return token
-}
+  const payload = {id: user._id, role: user.role}
+
+  const secret = user.role === 'admin' ? process.env.USER_SECRET : process.env.ADMIN_SECRET
+
+    const token = jwt.sign(payload, secret , {expiresIn: '1h'});
+
+
+  res.cookie('token', token, {
+    httpOnly: true,
+    secure: process.env.NODE_ENV === 'production',
+    sameSite: 'strict',
+    maxAge: 60 * 60 * 1000, // 1 hour to match JWT expiration
+  });
+
+  return token;
+};

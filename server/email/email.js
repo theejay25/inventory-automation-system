@@ -73,7 +73,7 @@ export const welcomeMail = async (email, subject, name) => {
             from: process.env.USER,
             to: email,
             subject: subject,
-            html: welcomemailTemplate.replace('{email}', name.toUppercase())
+            html: welcomemailTemplate.replace('{email}', name)
         })
 
         await fs.appendFile(`${emailLogFilePath}`, `Email sent to ${email} at ${date()} \n\n`)
