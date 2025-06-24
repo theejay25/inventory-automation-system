@@ -15,6 +15,7 @@ import { cleanUp } from './jobs/scheduleCleanUp.js'
 //routes
 import router from './routes/authRoutes.js'
 import adminRouter from './routes/admin/adminRoutes.js'
+import productRouter from './routes/productRoutes.js'
 
 const homePort = ['http://localhost:5173', 'http://localhost:514']
 
@@ -29,6 +30,7 @@ app.use(cookieParser())
 app.use(cors(homePort))
 app.use('/api/auth', router)
 app.use('/api/admin', adminRouter)
+app.use('/api/product', productRouter)
 
 cleanUp()
 

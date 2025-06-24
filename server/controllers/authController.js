@@ -229,16 +229,55 @@ export const logout = async (req, res) => {
     }
 }
 
-//route @ api/auth/delete
+// route @ api/auth/update-user
+// desc: update user information
+export const updateUser = async (req, res) => {
+  const { id } = req.params;
+  const { name } = req.body;
+
+  try {
+    const existingUser = await Users.findById(id);
+
+    if (!existingUser) {
+      return res.status(400).json({ success: false, message: 'Unable to find this user' });
+    }
+
+    // Only update the fields that are provided
+    if (name) existingUser.name = name;
+
+    await existingUser.save();
+
+    res.status(200).json({
+      success: true,
+      message: 'User info successfully updated',
+      user: {
+        id: existingUser._id,
+        name: existingUser.name,
+        email: existingUser.email,
+        role: existingUser.role
+      }
+    });
+  } catch (error) {
+    return res.status(500).json({ success: false, message: 'Error in updating user info' });
+  }
+};
+
+
+//route @ api/auth/delete-user
 //desc delete user 
 export const deleteUser = async (req, res) => {
   const { id } = req.params;
 
   try {
-    const existingUser = await Users.findOne({ _id : id });
+    // Optional: Validate ObjectId format
+    if (!id.match(/^[0-9a-fA-F]{24}$/)) {
+      return res.status(400).json({ success: false, message: 'Invalid user ID format' });
+    }
+
+    const existingUser = await Users.findById(id);
 
     if (!existingUser) {
-      return res.status(400).json({ success: false, message: 'User does not exist' });
+      return res.status(404).json({ success: false, message: 'User does not exist' });
     }
 
     await Users.deleteOne({ _id: id });

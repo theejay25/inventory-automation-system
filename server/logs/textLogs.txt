@@ -14,3 +14,399 @@ POST http://localhost:8080/api/auth/delete/6856db5de380b97c0b0e7659
 6/22/2025, 12:19:54 AM 
 POST http://localhost:8080/api/auth/delete/6856db5de380b97c0b0e7659 
 
+
+6/22/2025, 12:12:23 PM 
+GET http://localhost:8080/api/admin/users 
+
+
+6/22/2025, 12:12:43 PM 
+POST http://localhost:8080/api/auth/login 
+
+
+6/22/2025, 12:12:52 PM 
+POST http://localhost:8080/api/auth/login 
+
+
+6/22/2025, 12:14:12 PM 
+GET http://localhost:8080/api/admin/users 
+
+
+6/22/2025, 12:15:22 PM 
+GET http://localhost:8080/api/admin/users 
+
+
+6/22/2025, 12:15:30 PM 
+GET http://localhost:8080/api/admin/users 
+
+
+6/22/2025, 12:19:42 PM 
+GET http://localhost:8080/api/admin/users 
+
+
+6/22/2025, 12:20:08 PM 
+GET http://localhost:8080/api/admin/users 
+
+
+6/22/2025, 1:01:21 PM 
+GET http://192.168.219.17:8080/ 
+
+
+6/22/2025, 1:01:32 PM 
+GET http://192.168.219.17/HNAP1/ 
+
+
+6/22/2025, 1:01:39 PM 
+GET http://192.168.219.17:8080/ 
+
+
+6/22/2025, 1:01:45 PM 
+GET http://192.168.219.17/loginMsg.js 
+
+
+6/22/2025, 1:01:45 PM 
+GET http://192.168.219.17/cgi/get.cgi?cmd=home_login 
+
+
+6/22/2025, 1:01:58 PM 
+POST http://192.168.219.17:8080/boaform/formTracert 
+
+
+6/22/2025, 1:07:14 PM 
+POST http://localhost:8080/api/auth/update-user/6856da75e380b97c0b0e7650 
+
+
+6/22/2025, 1:08:15 PM 
+POST http://localhost:8080/api/auth/update-user/6856da75e380b97c0b0e7650 
+
+
+6/22/2025, 1:10:54 PM 
+POST http://localhost:8080/api/auth/update-user/6856da75e380b97c0b0e7650 
+
+
+6/22/2025, 1:11:03 PM 
+POST http://localhost:8080/api/auth/update-user/6856da75e380b97c0b0e7650 
+
+
+6/22/2025, 1:13:50 PM 
+GET http://localhost:8080/api/admin/users 
+
+
+6/22/2025, 1:15:03 PM 
+GET http://localhost:8080/api/admin/users 
+
+
+6/22/2025, 1:15:33 PM 
+GET http://localhost:8080/api/admin/users 
+
+
+6/22/2025, 1:15:59 PM 
+POST http://localhost:8080/api/auth/logout 
+
+
+6/22/2025, 1:16:09 PM 
+POST http://localhost:8080/api/auth/login 
+
+
+6/22/2025, 1:16:23 PM 
+GET http://localhost:8080/api/admin/users 
+
+
+6/22/2025, 1:17:48 PM 
+GET http://localhost:8080/api/admin/users?name=jude 
+
+
+6/22/2025, 1:18:01 PM 
+GET http://localhost:8080/api/admin/users?name=kake 
+
+
+6/22/2025, 1:23:12 PM 
+GET http://localhost:8080/api/admin/users?name=kake 
+
+
+6/24/2025, 10:56:46 AM 
+POST http://localhost:8080/api/auth/signup 
+
+
+6/24/2025, 10:58:30 AM 
+POST http://localhost:8080/api/auth/verify-email 
+
+
+6/24/2025, 10:59:13 AM 
+POST http://localhost:8080/api/auth/delete-user/685a765e44914f6138aad269 
+
+
+6/24/2025, 10:59:41 AM 
+POST http://localhost:8080/api/auth/delete-user/685a765e44914f6138aad269 
+
+
+6/24/2025, 11:00:07 AM 
+POST http://localhost:8080/api/auth/delete-user/685a765e44914f6138aad269 
+
+
+6/24/2025, 11:01:06 AM 
+POST http://localhost:8080/api/auth/delete-user/6856da75e380b97c0b0e7650 
+
+
+6/24/2025, 11:01:29 AM 
+POST http://localhost:8080/api/auth/login 
+
+
+6/24/2025, 11:01:55 AM 
+POST http://localhost:8080/api/auth/update-user/6856da75e380b97c0b0e7650 
+
+
+6/24/2025, 11:02:10 AM 
+POST http://localhost:8080/api/auth/delete-user/6856da75e380b97c0b0e7650 
+
+
+6/24/2025, 11:02:12 AM 
+POST http://localhost:8080/api/auth/delete-user/6856da75e380b97c0b0e7650 
+
+
+6/24/2025, 11:02:49 AM 
+POST http://localhost:8080/api/auth/delete-user/6856da75e380b97c0b0e7650 
+
+
+6/24/2025, 11:03:38 AM 
+GET http://localhost:8080/api/admin/users/ 
+
+
+6/24/2025, 11:03:48 AM 
+POST http://localhost:8080/api/auth/logout 
+
+
+6/24/2025, 11:03:53 AM 
+POST http://localhost:8080/api/auth/login 
+
+
+6/24/2025, 11:04:58 AM 
+POST http://localhost:8080/api/auth/signup 
+
+
+6/24/2025, 11:05:21 AM 
+POST http://localhost:8080/api/auth/login 
+
+
+6/24/2025, 11:05:49 AM 
+POST http://localhost:8080/api/auth/login 
+
+
+6/24/2025, 11:06:30 AM 
+POST http://localhost:8080/api/auth/verify-email 
+
+
+6/24/2025, 11:06:35 AM 
+POST http://localhost:8080/api/auth/login 
+
+
+6/24/2025, 11:07:23 AM 
+GET http://localhost:8080/api/admin/users/ 
+
+
+6/24/2025, 11:10:35 AM 
+POST http://localhost:8080/api/auth/login 
+
+
+6/24/2025, 11:10:55 AM 
+GET http://localhost:8080/api/admin/users/ 
+
+
+6/24/2025, 11:11:48 AM 
+POST http://localhost:8080/api/auth/update-user/685a784a4c5abd2477f92ae9 
+
+
+6/24/2025, 11:13:03 AM 
+POST http://localhost:8080/api/auth/delete-user/685a784a4c5abd2477f92ae9 
+
+
+6/24/2025, 11:15:33 AM 
+POST http://localhost:8080/api/auth/delete-user/685a784a4c5abd2477f92ae9 
+
+
+6/24/2025, 11:16:58 AM 
+POST http://localhost:8080/api/auth/delete-users/685a784a4c5abd2477f92ae9 
+
+
+6/24/2025, 11:18:51 AM 
+POST http://localhost:8080/api/auth/signup 
+
+
+6/24/2025, 11:20:42 AM 
+POST http://localhost:8080/api/auth/verify-email 
+
+
+6/24/2025, 11:22:06 AM 
+POST http://localhost:8080/api/auth/login 
+
+
+6/24/2025, 11:23:26 AM 
+POST http://localhost:8080/api/auth/login 
+
+
+6/24/2025, 11:24:19 AM 
+POST http://localhost:8080/api/auth/login 
+
+
+6/24/2025, 11:24:39 AM 
+POST http://localhost:8080/api/auth/login 
+
+
+6/24/2025, 11:24:59 AM 
+GET http://localhost:8080/api/admin/users/ 
+
+
+6/24/2025, 11:40:39 AM 
+POST http://localhost:8080/api/admin/update-user/685a784a4c5abd2477f92ae9 
+
+
+6/24/2025, 11:45:02 AM 
+POST http://localhost:8080/api/admin/update-user/685a784a4c5abd2477f92ae9 
+
+
+6/24/2025, 11:46:12 AM 
+POST http://localhost:8080/api/admin/update-user/685a784a4c5abd2477f92ae9 
+
+
+6/24/2025, 11:47:05 AM 
+POST http://localhost:8080/api/admin/update-user/685a784a4c5abd2477f92ae9 
+
+
+6/24/2025, 11:56:11 AM 
+POST http://localhost:8080/api/admin/update-user/685a784a4c5abd2477f92ae9 
+
+
+6/24/2025, 11:58:53 AM 
+POST http://localhost:8080/api/admin/update-user/685a784a4c5abd2477f92ae9 
+
+
+6/24/2025, 11:58:57 AM 
+POST http://localhost:8080/api/admin/update-user/685a784a4c5abd2477f92ae9 
+
+
+6/24/2025, 11:59:32 AM 
+POST http://localhost:8080/api/admin/update-user/685a784a4c5abd2477f92ae9 
+
+
+6/24/2025, 12:00:02 PM 
+POST http://localhost:8080/api/admin/update-user/685a784a4c5abd2477f92ae9 
+
+
+6/24/2025, 12:03:16 PM 
+PUT http://localhost:8080/api/admin/update-user/685a784a4c5abd2477f92ae9 
+
+
+6/24/2025, 12:04:05 PM 
+PUT http://localhost:8080/api/admin/update-user/685a7b8d9d32a040e19b5298 
+
+
+6/24/2025, 12:04:11 PM 
+PUT http://localhost:8080/api/admin/update-user/685a7b8d9d32a040e19b5298 
+
+
+6/24/2025, 12:04:57 PM 
+PUT http://localhost:8080/api/auth/update-user/685a784a4c5abd2477f92ae9 
+
+
+6/24/2025, 12:05:48 PM 
+PUT http://localhost:8080/api/admin/update-user/685a7b8d9d32a040e19b5298 
+
+
+6/24/2025, 12:07:01 PM 
+PUT http://localhost:8080/api/admin/update-user/685a7b8d9d32a040e19b5298 
+
+
+6/24/2025, 12:07:05 PM 
+PUT http://localhost:8080/api/admin/update-user/685a7b8d9d32a040e19b5298 
+
+
+6/24/2025, 12:07:41 PM 
+PUT http://localhost:8080/api/admin/update-user/685a7b8d9d32a040e19b5298 
+
+
+6/24/2025, 12:09:03 PM 
+PUT http://localhost:8080/api/auth/update-user/685a784a4c5abd2477f92ae9 
+
+
+6/24/2025, 12:10:25 PM 
+PUT http://localhost:8080/api/auth/update-user/6856da75e380b97c0b0e7650 
+
+
+6/24/2025, 12:12:08 PM 
+GET http://localhost:8080/api/admin/users/ 
+
+
+6/24/2025, 12:18:05 PM 
+PUT http://localhost:8080/api/auth/make-admin/6856da75e380b97c0b0e7650 
+
+
+6/24/2025, 12:19:03 PM 
+POST http://localhost:8080/api/auth/make-admin/6856da75e380b97c0b0e7650 
+
+
+6/24/2025, 12:19:06 PM 
+POST http://localhost:8080/api/auth/make-admin/6856da75e380b97c0b0e7650 
+
+
+6/24/2025, 12:20:11 PM 
+POST http://localhost:8080/api/auth/make-admin/685a7b8d9d32a040e19b5298 
+
+
+6/24/2025, 12:20:30 PM 
+POST http://localhost:8080/api/admin/make-admin/685a7b8d9d32a040e19b5298 
+
+
+6/24/2025, 12:23:17 PM 
+POST http://localhost:8080/api/auth/delete-users/685a784a4c5abd2477f92ae9 
+
+
+6/24/2025, 12:23:40 PM 
+POST http://localhost:8080/api/auth/delete-users/685a7b8d9d32a040e19b5298 
+
+
+6/24/2025, 8:04:39 PM 
+POST http://localhost:8080/api/product/ 
+
+
+6/24/2025, 8:05:14 PM 
+POST http://localhost:8080/api/auth/login 
+
+
+6/24/2025, 8:05:33 PM 
+POST http://localhost:8080/api/product/6856da75e380b97c0b0e7650 
+
+
+6/24/2025, 8:05:53 PM 
+POST http://localhost:8080/api/product/6856da75e380b97c0b0e7650 
+
+
+6/24/2025, 8:08:54 PM 
+POST http://localhost:8080/api/product/6856da75e380b97c0b0e7650 
+
+
+6/24/2025, 8:09:26 PM 
+POST http://localhost:8080/api/product/6856da75e380b97c0b0e7650 
+
+
+6/24/2025, 8:12:02 PM 
+POST http://localhost:8080/api/product/6856da75e380b97c0b0e7650 
+
+
+6/24/2025, 8:25:04 PM 
+GET http://localhost:8080/api/product/6856da75e380b97c0b0e7650 
+
+
+6/24/2025, 8:26:05 PM 
+GET http://localhost:8080/api/product/6856da75e380b97c0b0e7650 
+
+
+6/24/2025, 8:26:21 PM 
+GET http://localhost:8080/api/product/6856da75e380b97c0b0e7650 
+
+
+6/24/2025, 8:37:17 PM 
+GET http://localhost:8080/api/product/6856da75e380b97c0b0e7650/685af7159e768fc8ef124d26 
+
+
+6/24/2025, 8:43:38 PM 
+POST http://localhost:8080/api/product/6856da75e380b97c0b0e7650 
+

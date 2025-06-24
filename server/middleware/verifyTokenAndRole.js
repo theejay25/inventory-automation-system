@@ -4,7 +4,7 @@ export const verifyTokenAndRole = (req, res, next) => {
     const token = req.cookies.token || req.headers.authorization?.split(' ')[1];
 
     if (!token){
-        return res.status.json({
+        return res.status(403).json({
             succcess: false,
             messsage: 'no token provided'
         })

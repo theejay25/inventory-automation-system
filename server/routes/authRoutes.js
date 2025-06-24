@@ -1,5 +1,6 @@
 import express from "express";
-import { deleteUser, forgotPassword, login, logout, resetPassword, signup, test, verifyEmail } from "../controllers/authController.js";
+import { deleteUser, forgotPassword, login, logout, resetPassword, signup, test, updateUser, verifyEmail } from "../controllers/authController.js";
+import { verifyTokenAndRole } from "../middleware/verifyTokenAndRole.js";
 
 
 const router = express.Router()
@@ -22,8 +23,11 @@ router.post('/login', login)
 //logout route
 router.post('/logout', logout)
 
+//update user info
+router.put('/update-user/:id', verifyTokenAndRole, updateUser)
+
 //delete user
-router.post('/delete/:id', deleteUser)
+router.post('/delete-users/:id', deleteUser)
 
 //reset password route
 router.post('/reset-password/:token', resetPassword)
