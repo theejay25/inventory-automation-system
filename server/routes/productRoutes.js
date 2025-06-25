@@ -1,5 +1,5 @@
 import express from 'express'
-import { addNewProduct, getAllProducts, getProductById } from '../controllers/productsController.js'
+import { addNewProduct, getAllProducts, getProductById, updateproducts } from '../controllers/productsController.js'
 import { verifyTokenAndRole } from '../middleware/verifyTokenAndRole.js'
 
 const productRouter = express.Router()
@@ -15,6 +15,10 @@ productRouter.get('/:id', verifyTokenAndRole, getAllProducts)
 //GET
 //get product by Id
 productRouter.get('/:id/:prodId', verifyTokenAndRole, getProductById)
+
+//PUT
+//update product info
+productRouter.put('/:id/:prodId', verifyTokenAndRole, updateproducts)
 
 export default productRouter
 

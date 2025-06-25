@@ -410,3 +410,51 @@ GET http://localhost:8080/api/product/6856da75e380b97c0b0e7650/685af7159e768fc8e
 6/24/2025, 8:43:38 PM 
 POST http://localhost:8080/api/product/6856da75e380b97c0b0e7650 
 
+
+6/25/2025, 1:04:16 AM 
+POST http://localhost:8080/api/auth/login 
+
+
+6/25/2025, 1:07:06 AM 
+GET http://localhost:8080/api/product/6856da75e380b97c0b0e7650 
+
+
+6/25/2025, 1:07:48 AM 
+GET http://localhost:8080/api/product/6856da75e380b97c0b0e7650?name=coca-cola 
+
+
+6/25/2025, 1:08:16 AM 
+GET http://localhost:8080/api/product/6856da75e380b97c0b0e7650?name=coca-cola 
+
+
+6/25/2025, 1:08:55 AM 
+GET http://localhost:8080/api/product/6856da75e380b97c0b0e7650?name=coca-cola&category=sweet 
+
+
+6/25/2025, 1:09:01 AM 
+GET http://localhost:8080/api/product/6856da75e380b97c0b0e7650?name=coca-cola&category=sweets 
+
+
+6/25/2025, 1:09:07 AM 
+GET http://localhost:8080/api/product/6856da75e380b97c0b0e7650?name=coca-cola 
+
+
+6/25/2025, 1:09:26 AM 
+GET http://localhost:8080/api/product/6856da75e380b97c0b0e7650?category=snacks 
+
+
+6/25/2025, 1:25:55 AM 
+GET http://localhost:8080/api/product/6856da75e380b97c0b0e7650?category=snacks 
+
+
+6/25/2025, 1:26:06 AM 
+GET http://localhost:8080/api/product/6856da75e380b97c0b0e7650?category=beverage 
+
+
+6/25/2025, 1:40:05 AM 
+GET http://localhost:8080/api/product/6856da75e380b97c0b0e7650/685b41bda4e671598e6c4bd1 
+
+
+6/25/2025, 1:42:58 AM 
+PUT http://localhost:8080/api/product/6856da75e380b97c0b0e7650/685b41bda4e671598e6c4bd1 
+

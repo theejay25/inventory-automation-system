@@ -12,7 +12,7 @@ import Users from '../models/users.js'
 // supplier – String, optional (default: '')
 
 
-// route @ api/product/:id
+// @route POST api/product/:id
 //desc add products to db
 export const addNewProduct = async ( req, res ) => {
     const { name, sku, description, category, quantity, price, supplier} = req.body
@@ -57,6 +57,7 @@ export const addNewProduct = async ( req, res ) => {
 //get all products in db
 export const getAllProducts = async (req, res) => {
   const { id } = req.params;
+  const { name, category, supplier } = req.query;
 
   try {
     const existingUser = await Users.findById(id);
@@ -64,12 +65,18 @@ export const getAllProducts = async (req, res) => {
       return res.status(400).json({ success: false, message: 'User not found' });
     }
 
-    const allProducts = await Products.find();
+    // Build query object dynamically for flexible filtering
+    const query = {};
+    if (name) query.name = { $regex: new RegExp(name, 'i') };
+    if (category) query.category = { $regex: new RegExp(category, 'i') };
+    if (supplier) query.supplier = { $regex: new RegExp(supplier, 'i') };
+
+    const filteredProducts = await products.find(query);
 
     res.status(200).json({
       success: true,
-      message: 'All products retrieved successfully',
-      products: allProducts
+      message: 'Products retrieved successfully',
+      products: filteredProducts
     });
   } catch (error) {
     console.log(error);
@@ -78,7 +85,7 @@ export const getAllProducts = async (req, res) => {
 };
 
 
-// route @ api/product/:id/:prodId
+// @route GET api/product/:id/:prodId
 //get product by Id
 export const getProductById = async (req, res) => {
   const { id, prodId } = req.params;
@@ -89,7 +96,7 @@ export const getProductById = async (req, res) => {
       return res.status(400).json({ success: false, message: 'User not found' });
     }
 
-    const product = await Products.findById(prodId);
+    const product = await products.findById(prodId);
     if (!product) {
       return res.status(404).json({ success: false, message: 'Product not found' });
     }
@@ -104,3 +111,38 @@ export const getProductById = async (req, res) => {
     res.status(500).json({ success: false, message: 'Error retrieving product' });
   }
 };
+
+
+// @route PUT /api/product/:id/:prodId
+//update product info
+export const updateproducts = async (req, res) => {
+   const { id, prodId } = req.params;
+   const {name, category, supplier, description, price, quantity} = req.body
+
+  try {
+    const existingUser = await Users.findById(id);
+    if (!existingUser) {
+      return res.status(400).json({ success: false, message: 'User not found' });
+    }
+
+    const product = await products.findById(prodId);
+    if (!product) {
+      return res.status(404).json({ success: false, message: 'Product not found' });
+    }
+
+    if(name) product.name = name
+    if(category) product.category = category
+    if(price) product.price = price
+    if(description) product.description = description
+    if(supplier) product.supplier = supplier
+    if(quantity) product.quantity = quantity
+
+    await product.save()
+
+    res.status(200).json({success: true, message: "successfully updated product information" })
+
+  } catch (error) {
+    console.log(error)
+    res.status(500).json({success: false, message: 'error in updating product information'})
+  }
+}
