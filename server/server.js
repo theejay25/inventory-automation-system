@@ -11,6 +11,7 @@ import mongooseConnect from './db/MongoDbConnect.js'
 import {date} from './utils/getDates.js'
 import { textLogger } from './middleware/textLogger.js'
 import { cleanUp } from './jobs/scheduleCleanUp.js'
+import scheduleStockCheck from './jobs/scheduleStockCheck.js'
 
 //routes
 import router from './routes/authRoutes.js'
@@ -32,7 +33,9 @@ app.use('/api/auth', router)
 app.use('/api/admin', adminRouter)
 app.use('/api/product', productRouter)
 
+// scheduled jobs
 cleanUp()
+scheduleStockCheck()
 
 app.get('/fruits', (req, res) => {
     res.json({

@@ -113,7 +113,7 @@ export const getProductById = async (req, res) => {
 };
 
 
-// @route PUT /api/product/:id/:prodId
+// @route PUT /api/product/update-products/:id/:prodId
 //update product info
 export const updateproducts = async (req, res) => {
    const { id, prodId } = req.params;
@@ -139,10 +139,42 @@ export const updateproducts = async (req, res) => {
 
     await product.save()
 
-    res.status(200).json({success: true, message: "successfully updated product information" })
+    res.status(200).json({
+      success: true, 
+      message: `successfully updated ${product.name} ${product.sku} information` 
+    })
 
   } catch (error) {
     console.log(error)
     res.status(500).json({success: false, message: 'error in updating product information'})
   }
+}
+
+// @toute POST /api/product/delete-product/:id/:prodId
+// delete product from db
+export const deleteproducts = async (req, res) => {
+  const { id, prodId } = req.params;
+  
+  try {
+    const existingUser = await Users.findById(id);
+    if (!existingUser) {
+      return res.status(400).json({ success: false, message: 'User not found' });
+    }
+
+    const product = await products.findByIdAndDelete(prodId);
+    if (!product) {
+      return res.status(404).json({ success: false, message: 'Product not found' });
+    }
+
+    res.status(200).json({
+      success: true, 
+      message: `${product.name} ${product.sku} successfully deleted from database`
+    })
+
+
+  } catch(error) {
+    console.log(error)
+    res.status(500).json({success: false, message: 'Error in deleting product'})
+  }
+
 }

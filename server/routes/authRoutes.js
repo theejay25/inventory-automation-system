@@ -27,7 +27,7 @@ router.post('/logout', logout)
 router.put('/update-user/:id', verifyTokenAndRole, updateUser)
 
 //delete user
-router.post('/delete-users/:id', deleteUser)
+router.delete('/delete-users/:id', deleteUser)
 
 //reset password route
 router.post('/reset-password/:token', resetPassword)

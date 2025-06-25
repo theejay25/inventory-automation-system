@@ -131,7 +131,12 @@ export const login = async (req , res) => {
     const message = existingUser.role === 'admin' ? 'Welcome Admin' : "Welcome User"
 
 
-    await welcomeMail(existingUser.email, 'Welcome To Stocks', existingUser.name)
+    if (!existingUser.hasLoggedIn) {
+      await welcomeMail(existingUser.email, 'Welcome To Stocks', existingUser.name);
+      existingUser.hasLoggedIn = true;
+      await existingUser.save();
+    }
+
 
   res.status(200).json({
   success: true,

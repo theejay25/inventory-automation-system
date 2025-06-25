@@ -10,6 +10,7 @@ const userSchema = new mongoose.Schema({
     workingHours: {type: Object, default: { start: "09:00", end: "17:00" }},
     createdAt: {type: Date, default: Date.now},
     role: {type: String, enum: ['admin', 'employee'], default: 'employee'},
+    hasLoggedIn: {type: Boolean, default: false},
     verificationToken:String,
     verificationTokenExpiresAt:Date,
     resetPasswordToken:String,
