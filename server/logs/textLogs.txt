@@ -670,3 +670,23 @@ GET http://localhost:8080/api/auth/test
 6/26/2025, 11:14:03 AM 
 GET http://localhost:8080/api/auth/test 
 
+
+6/26/2025, 1:19:51 PM 
+GET http://192.168.117.17:8080/ 
+
+
+6/26/2025, 1:20:02 PM 
+GET http://192.168.117.17/HNAP1/ 
+
+
+6/26/2025, 1:20:08 PM 
+GET http://192.168.117.17:8080/ 
+
+
+6/26/2025, 1:20:09 PM 
+GET http://192.168.117.17/loginMsg.js 
+
+
+6/26/2025, 1:20:09 PM 
+GET http://192.168.117.17/cgi/get.cgi?cmd=home_login 
+
