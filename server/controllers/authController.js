@@ -1,13 +1,15 @@
 import Users from '../models/users.js'
+import products from '../models/products.js'
 import bcrypt from 'bcrypt'
 import {verificationToken} from '../utils/verificationToken.js'
 import { passwordResetMail, verifyMail, welcomeMail } from '../email/email.js'
 import { generateJWTToken } from '../utils/generateJWTToken.js'
 import crypto from 'crypto'
 
-export const test =  (req,res)=> {
+export const test = async (req,res)=> {
 try {
-        res.status(200).json({msg: 'connected'})
+        const product = await products.find()
+        res.status(200).json({msg: 'connected', products: product })
 } catch (error) {
     console.log(error)
 }
