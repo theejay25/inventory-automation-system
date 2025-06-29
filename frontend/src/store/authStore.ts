@@ -14,6 +14,7 @@ type props = {
     verifyEmail: (code: string) => Promise<{} | null>
     login: (email: string, password: string) => Promise<{} | null>
     logout: () => Promise<void>
+    forgotPassword: (email: string) => Promise<{} | null>
 }
 
 const serverUrl = 'http://localhost:8080/api/auth'
@@ -133,6 +134,25 @@ export const useAuthStore = create<props>((set: any) => ({
             console.log(error)
             set({ error: error.message})
         }
+    },
+
+    forgotPassword: async(email: string): Promise<{} | null> => {
+      set({isLoading: true, user: null, error: null, message: null, role: null})
+
+      try {
+        const response = await axios.post(`${serverUrl}/forgot-password`, {email}, {withCredentials: true})
+
+        set({isLoading: false, user: response.data.user, message: response.data.message})
+
+        return response.data.user || {}
+
+      } catch (error: any) {
+        console.log(error)
+        set({isLoading: false, user: null, error: error.message, message: null})
+
+        return null
+
+      }
     }
 
 
