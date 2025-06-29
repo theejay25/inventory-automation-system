@@ -18,7 +18,7 @@ import router from './routes/authRoutes.js'
 import adminRouter from './routes/admin/adminRoutes.js'
 import productRouter from './routes/productRoutes.js'
 
-const homePort = ['http://localhost:5173', 'http://localhost:514']
+const homePort = ['http://localhost:5173', 'http://localhost:5174']
 
 dotenv.config()
 
@@ -28,7 +28,10 @@ const app = express()
 app.use(textLogger)
 app.use(express.json())
 app.use(cookieParser())
-app.use(cors(homePort))
+app.use(cors({
+    origin: homePort,
+    credentials: true
+}))
 app.use('/api/auth', router)
 app.use('/api/admin', adminRouter)
 app.use('/api/product', productRouter)

@@ -1,5 +1,5 @@
 import express from "express";
-import { deleteUser, forgotPassword, login, logout, resetPassword, signup, test, updateUser, verifyEmail } from "../controllers/authController.js";
+import { checkAuth, deleteUser, forgotPassword, login, logout, resetPassword, signup, test, updateUser, verifyEmail } from "../controllers/authController.js";
 import { verifyTokenAndRole } from "../middleware/verifyTokenAndRole.js";
 
 
@@ -31,6 +31,9 @@ router.delete('/delete-users/:id', deleteUser)
 
 //reset password route
 router.post('/reset-password/:token', resetPassword)
+
+//check user auth
+router.get('/check-auth', verifyTokenAndRole, checkAuth)
 
 
 export default router

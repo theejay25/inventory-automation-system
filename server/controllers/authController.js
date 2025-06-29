@@ -147,7 +147,7 @@ export const login = async (req , res) => {
     name: existingUser.name,
     email: existingUser.email,
     id: existingUser._id,          
-    role: existingUser.role
+    role: existingUser.role,
   }
 });
 
@@ -229,7 +229,11 @@ try {
 //desc user logout
 export const logout = async (req, res) => {
      try {
-        res.clearCookie('token'); // Clear the JWT token cookie
+        res.clearCookie('token', {
+        httpOnly: true,
+        secure: process.env.NODE_ENV === 'production',
+        sameSite: 'strict'
+      }); // Clear the JWT token cookie
         return res.status(200).json({ success: true, message: 'User logged out successfully' });
     } catch (error) {
         return res.status(500).json({ success: false, message: 'Internal server error', error: error.message });
@@ -296,6 +300,33 @@ export const deleteUser = async (req, res) => {
     return res.status(500).json({ success: false, message: 'Error in deleting user' });
   }
 };
+
+//route @ api/auth/check-auth
+//check if user is authenticated
+export const checkAuth = async (req, res) => {
+  try {
+    const user = await Users.findById(req.user.id); // Assuming req.user is set in verifyToken middleware
+
+    if (!user) {
+      return res.status(401).json({ success: false, message: 'Unauthorized' });
+    }
+
+    return res.status(200).json({
+      success: true,
+      user: {
+        name: user.name,
+        email: user.email,
+        role: user.role,
+        id: user._id
+      }
+    });
+
+  } catch (error) {
+    console.error('Auth check error:', error);
+    return res.status(500).json({ success: false, message: 'Server error' });
+  }
+};
+
 
 
 
