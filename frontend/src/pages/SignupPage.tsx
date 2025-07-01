@@ -1,6 +1,7 @@
 import { useState } from "react"
 import { Link, useNavigate } from "react-router-dom"
 import { useAuthStore } from "../store/authStore"
+import GlitchLoader from "../components/react/Loader"
 
 function SignupPage() {
 
@@ -31,7 +32,9 @@ function SignupPage() {
 
     setSent(true)
 
-    navigate('/verify-email') 
+        setTimeout(() => {
+            navigate('/verify-email');
+        }, 2500)
     
   }
 
@@ -82,16 +85,18 @@ function SignupPage() {
                               />
                             </div>
 
-                            <input 
-                                disabled = {isLoading}
-                                type="submit" 
-                                value={isLoading ? 'Loading...' : 'SignUp'} 
-                                className="text-white cursor-pointer w-full text-center p-3 mb-4 rounded-md bg-[#0A2463]"
-                            />
+                            {sent && (
+                                <div className="p-3 bg-green-500 rounded-md text-center text-white mb-3">Login code has been sent to your Email</div>
+                            )}
+
+                             <button
+                                disabled={isLoading}
+                                type="submit"
+                                className="text-white w-full text-center p-3 mb-2 rounded-md bg-[#0A2463]"
+                            >
+                                {isLoading ? <GlitchLoader /> : "SignIn"}
+                            </button>
                         </form>
-                        {/* {sent && (
-                            <div className="p-3 bg-green-500 rounded-md text-center text-white mb-3">Login code has been sent to your Email</div>
-                        )} */}
 
                         {error && <p className="text-red-500 text-center mb-2">{error}</p>}
 

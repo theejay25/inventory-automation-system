@@ -1,6 +1,7 @@
 import { useState, type ChangeEvent } from "react"
 import { Link, useNavigate } from "react-router-dom"
 import { useAuthStore } from "../store/authStore"
+import GlitchLoader from "../components/react/Loader"
 
 function SigninPage() {
 
@@ -9,7 +10,7 @@ function SigninPage() {
 
     const navigate = useNavigate()
 
-    const {login, user, isLoading, error, message, role} = useAuthStore()
+    const {login, user, isLoading, error, message} = useAuthStore()
 
     const handleSubmit = async (e: {preventDefault: () => void}) => {
         e.preventDefault()
@@ -67,12 +68,13 @@ function SigninPage() {
                             />
                             </div>
 
-                            <input 
+                            <button
                                 disabled={isLoading}
-                                type="submit" 
-                                value={isLoading ? "Loading..." : "SignIn"} 
+                                type="submit"
                                 className="text-white w-full text-center p-3 mb-2 rounded-md bg-[#0A2463]"
-                            />
+                            >
+                                {isLoading ? <GlitchLoader /> : "SignIn"}
+                            </button>
                         </form>
 
                             {error && <p className="text-red-500 text-center mb-4">{error}</p>}

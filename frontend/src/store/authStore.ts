@@ -15,6 +15,7 @@ type props = {
     login: (email: string, password: string) => Promise<{} | null>
     logout: () => Promise<void>
     forgotPassword: (email: string) => Promise<{} | null>
+    resetPassword: (password: string, token: string) => Promise<{} | null>
 }
 
 const serverUrl = 'http://localhost:8080/api/auth'
@@ -140,11 +141,16 @@ export const useAuthStore = create<props>((set: any) => ({
       set({isLoading: true, user: null, error: null, message: null, role: null})
 
       try {
-        const response = await axios.post(`${serverUrl}/forgot-password`, {email}, {withCredentials: true})
+       const response = await axios.post(`${serverUrl}/forgot-password`, {email}, {withCredentials: true});
+     
+       set({ 
+        isLoading: false, 
+        user: response.data.user || null, 
+        message: response.data.message 
+      });
 
-        set({isLoading: false, user: response.data.user, message: response.data.message})
+      return response.data; // return the whole backend response
 
-        return response.data.user || {}
 
       } catch (error: any) {
         console.log(error)
@@ -152,6 +158,25 @@ export const useAuthStore = create<props>((set: any) => ({
 
         return null
 
+      }
+    },
+
+    resetPassword: async(password: string, token: string): Promise<{} | null> => {
+      set({isLoading: true})
+
+      try {
+        
+        const response = await axios.post(`${serverUrl}/reset-password/${token}`, {password}, {withCredentials: true})
+
+        set({user: response.data.user, error: null, isLoading: false})  
+
+        return response.data
+
+      } catch (error: any) {
+        
+        console.log(error)
+        set({isLoading: false, error: error.message, user: null})
+        return { success: false, message: error.message };  // ✅ always return fallback shape
       }
     }
 

@@ -1,14 +1,15 @@
 import { useState, type ChangeEvent } from "react"
-import { useNavigate } from "react-router-dom"
 import { useAuthStore } from "../store/authStore"
+import GlitchLoader from "../components/react/Loader"
 
 function ForgotPasswordPage() {
 
     const [sent, setSent] = useState(false)
 
-    const navigate = useNavigate()
 
     const {forgotPassword, error, user, isLoading} = useAuthStore()
+
+    const messsage = useAuthStore(state => state.message)
 
     const [email, setEmail] = useState('')
 
@@ -18,14 +19,15 @@ function ForgotPasswordPage() {
 
         console.log(user)
         console.log(error)
+      const response: any = await forgotPassword(email);
 
-        const response: any = await forgotPassword(email)
-
-        if(!response.success) {
-            return alert (response.error || 'error in password reset')
+        if (!response.success) {
+        return console.log(response.message || 'Error in password reset');
         }
 
-        navigate('/reset-password')
+        console.log(messsage)
+    setSent(true);
+
     }
 
   return (
@@ -50,19 +52,21 @@ function ForgotPasswordPage() {
                             />
                             </div>
 
-                            <input 
+                            {sent && (
+                              <div className="p-3 bg-green-500 rounded-md text-center text-white mb-3">Reset password link has been sent to Email</div>
+                          )}
+
+                           <button
                                 disabled={isLoading}
-                                type="submit" 
-                                value={isLoading ? "Loading..." : "Submit" }
-                                className="text-white w-full text-center p-3 mb-4 rounded-md bg-[#0A2463]"
-                            />
+                                type="submit"
+                                className="text-white w-full text-center p-3 mb-2 rounded-md bg-[#0A2463]"
+                            >
+                                {isLoading ? <GlitchLoader /> : "SignIn"}
+                            </button>
                         </form>
 
                         {error && <p className="text-red-500 text-center mb-3">{error}</p>}
 
-                          {sent && (
-                            <div className="p-3 bg-green-500 rounded-md text-center text-white mb-3">Reset password link has been sent to Email</div>
-                        )}
 
                     </div>
                 </div>

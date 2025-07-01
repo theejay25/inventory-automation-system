@@ -14,11 +14,15 @@ router.post('/signup', signup)
 //verify account route
 router.post('/verify-email',  verifyEmail)
 
+//login route
+router.post('/login', login)
+
 //User forgot password 
 router.post('/forgot-password', forgotPassword)
 
-//login route
-router.post('/login', login)
+//reset password route
+router.post('/reset-password/:token', resetPassword)
+
 
 //logout route
 router.post('/logout', logout)
@@ -29,8 +33,6 @@ router.put('/update-user/:id', verifyTokenAndRole, updateUser)
 //delete user
 router.delete('/delete-users/:id', deleteUser)
 
-//reset password route
-router.post('/reset-password/:token', resetPassword)
 
 //check user auth
 router.get('/check-auth', verifyTokenAndRole, checkAuth)

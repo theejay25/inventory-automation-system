@@ -1,6 +1,7 @@
 import { useState, type ChangeEvent } from "react"
 import { useAuthStore } from "../store/authStore"
 import { useNavigate } from "react-router-dom"
+import GlitchLoader from "../components/react/Loader"
 
 function VerifyEmailPage() {
 
@@ -47,12 +48,13 @@ function VerifyEmailPage() {
                             />
                             </div>
 
-                            <input 
+                           <button
                                 disabled={isLoading}
-                                type="submit" 
-                                value={ isLoading ? "Loading..." : "Verify"} 
-                                className="text-white w-full text-center p-3 mb-4 rounded-md bg-[#0A2463]"
-                            />
+                                type="submit"
+                                className="text-white w-full text-center p-3 mb-2 rounded-md bg-[#0A2463]"
+                            >
+                                {isLoading ? <GlitchLoader /> : "SignIn"}
+                            </button>
                         </form>
 
                         {error && <p className="text-red-500 text-center">{error}</p>}

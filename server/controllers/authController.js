@@ -178,7 +178,16 @@ try {
   
     await passwordResetMail(existingUser.email, 'Reset Your Password', `${process.env.CLIENT_URL}/reset-password/${resetPasswordToken}`)
   
-    res.status(200).json({success: true, message: 'Reset token has been sent to email'})
+    res.status(200).json({
+      success: true, 
+      message: 'Reset token has been sent to email', 
+      user: {
+        name: existingUser.name,
+        email: existingUser.email,
+        role: existingUser.role,
+        id: existingUser._id
+      }
+    })
 } catch (error) {
   res.status(500).json({success: false, message: 'Error in sending password Reset link'})
   console.log(error)
@@ -215,7 +224,16 @@ try {
 
     await existingUser.save()
 
-    res.status(200).json({success: true, message: 'Password successfully reset'})
+    res.status(200).json({
+      success: true,
+      message: 'Password successfully reset',
+      user: {
+        name: existingUser.name,
+        email: existingUser.email,
+        role: existingUser.role,
+        id: existingUser._id
+      }
+    })
 } catch (error) {
   console.log(error)
   res.status(500).json({success: false, message: 'Unsuccessful password reset'})
