@@ -1,0 +1,9 @@
+@layer {
+    .sidemenu-list {
+        @apply py-3 cursor-pointer ml-10 lg:ml-18 lg:py-5 flex items-center rounded-l-4xl px-5 w-[40vw] lg:w-full
+    }
+
+    .sidemenu-list:hover {
+        @apply bg-[#1a1a1a] duration-100
+    }
+}

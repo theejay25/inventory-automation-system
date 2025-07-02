@@ -1,11 +1,11 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
-import SignupPage from './pages/SignupPage'
-import SigninPage from './pages/SigninPage'
-import ForgotPasswordPage from './pages/ForgotPassword'
-import VerifyEmailPage from './pages/VerifyEmailPage'
+import SignupPage from './pages/auth/SignupPage'
+import SigninPage from './pages/auth/SigninPage'
+import ForgotPasswordPage from './pages/auth/ForgotPassword'
+import VerifyEmailPage from './pages/auth/VerifyEmailPage'
 import AdminDashboard from './pages/AdminDashboard'
 import Dashboard from './pages/Dashboard'
-import ResetPasswordPage from './pages/ResetPasswordPage'
+import ResetPasswordPage from './pages/auth/ResetPasswordPage'
 
 
 

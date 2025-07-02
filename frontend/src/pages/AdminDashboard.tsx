@@ -1,25 +1,37 @@
-import { useNavigate } from "react-router-dom"
-import { useAuthStore } from "../store/authStore"
+import SideMenu from "../components/react/SideMenu"
+
+// icons
+import { FaBarsStaggered } from "react-icons/fa6";
+import { useMenuStore } from "../store/menuStore";
 
 function AdminDashboard() {
 
-   const navigate = useNavigate()
-   const {logout, error, message} = useAuthStore()
-    
-    const handleClick = async () => {
-        await logout()
-    
-        if (!error) {
-          navigate('/')
-        } else {
-          console.log(error)          
-        }
-        console.log(message)
-    }
+  const {open, isOpen, close} = useMenuStore() 
+
   return (
     <>
-      <div className="text-white">AdminDashboard</div>
-      <button onClick={handleClick} className="bg-red-500 text-white p-3">Log out</button>      
+      <div className="text-white overflow-hidden p-3" onClick={close}>
+        {/* <div
+          className="cursor-pointer w-fit p-2"
+         
+          >
+        </div> */}
+
+         {isOpen && (
+            <div
+            className="fixed inset-0 w-fit p-3 cursor-pointer h-fit z-40"
+            onClick={(e) => {
+            e.stopPropagation()
+            open()
+            }}
+            >
+            <FaBarsStaggered size={28} />
+
+            </div>
+          )}
+
+        <SideMenu classname={`${isOpen ? 'side-div left-[-45vw] ' : ' side-div left-[0vw] '}`}/>
+      </div>
     </>
   )
 }

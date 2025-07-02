@@ -1,7 +1,7 @@
 import { useState, type ChangeEvent } from "react"
-import { useAuthStore } from "../store/authStore"
+import { useAuthStore } from "../../store/authStore"
 import { useNavigate } from "react-router-dom"
-import GlitchLoader from "../components/react/Loader"
+import GlitchLoader from "../../components/react/Loader"
 
 function VerifyEmailPage() {
 

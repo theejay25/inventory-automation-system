@@ -16,6 +16,7 @@ type props = {
     logout: () => Promise<void>
     forgotPassword: (email: string) => Promise<{} | null>
     resetPassword: (password: string, token: string) => Promise<{} | null>
+    checkAuth: () => Promise<void>
 }
 
 const serverUrl = 'http://localhost:8080/api/auth'
@@ -177,6 +178,28 @@ export const useAuthStore = create<props>((set: any) => ({
         console.log(error)
         set({isLoading: false, error: error.message, user: null})
         return { success: false, message: error.message };  // ✅ always return fallback shape
+      }
+    },
+
+    checkAuth: async (): Promise<void> => {
+      set ({isCheckingAuth: true, isAuthenticated: false, error: null})
+
+      try {
+        
+        const response = await axios.get(`${serverUrl}/check-auth`)
+        
+        if(response.data.user){
+                set({isCheckingAuth: false, isAuthenticated: true, user: response.data.user})
+
+            } else {
+                set({isCheckingAuth: false, isAuthenticated: false, user: null})
+
+            }
+
+      } catch (error: any) {
+        console.log(error)
+        set ({isCheckingAuth: false, isAuthenticated: false, error: error.message, user:null})
+
       }
     }
 
