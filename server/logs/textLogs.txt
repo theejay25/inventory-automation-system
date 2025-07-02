@@ -266,3 +266,59 @@ POST http://localhost:8080/api/auth/login
 7/2/2025, 10:34:56 AM 
 POST http://localhost:8080/api/auth/login 
 
+
+7/2/2025, 7:43:38 PM 
+GET http://192.168.0.3:8080/ 
+
+
+7/2/2025, 7:43:49 PM 
+GET http://192.168.0.3/HNAP1/ 
+
+
+7/2/2025, 7:43:56 PM 
+GET http://192.168.0.3:8080/ 
+
+
+7/2/2025, 7:44:03 PM 
+GET http://192.168.0.3/loginMsg.js 
+
+
+7/2/2025, 7:44:03 PM 
+GET http://192.168.0.3/cgi/get.cgi?cmd=home_login 
+
+
+7/2/2025, 7:44:15 PM 
+POST http://192.168.0.3:8080/boaform/formTracert 
+
+
+7/2/2025, 7:55:18 PM 
+OPTIONS http://localhost:8080/api/auth/forgot-password 
+
+
+7/2/2025, 7:55:18 PM 
+POST http://localhost:8080/api/auth/forgot-password 
+
+
+7/2/2025, 7:56:26 PM 
+OPTIONS http://localhost:8080/api/auth/forgot-password 
+
+
+7/2/2025, 7:56:26 PM 
+POST http://localhost:8080/api/auth/forgot-password 
+
+
+7/2/2025, 8:10:17 PM 
+OPTIONS http://localhost:8080/api/auth/reset-password/a8c2e9222ab60afc108ec647816ff1ef1bf01de75b117c7c157cfda74e1f3c57 
+
+
+7/2/2025, 8:10:17 PM 
+POST http://localhost:8080/api/auth/reset-password/a8c2e9222ab60afc108ec647816ff1ef1bf01de75b117c7c157cfda74e1f3c57 
+
+
+7/2/2025, 8:10:37 PM 
+OPTIONS http://localhost:8080/api/auth/login 
+
+
+7/2/2025, 8:10:37 PM 
+POST http://localhost:8080/api/auth/login 
+

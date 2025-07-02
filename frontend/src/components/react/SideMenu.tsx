@@ -39,8 +39,9 @@ function SideMenu({classname}: props) {
                 <FaX />
             </div>
 
-            <h1 className="font-semibold text-center tracking-wider text-lg mt-3 lg:mt-20 lg:text-3xl lg:tracking-widest">QUICKSHELF</h1>
-            <p className="text-center text-lg tracking-wider lg:text-2xl">Smart inventory</p>
+            <div className="lg:w-fit lg:ml-15">
+            <h1 className="font-semibold text-center tracking-wider text-lg mt-3 lg:ml-15 lg:mt-20 lg:text-3xl lg:tracking-widest">QUICKSHELF</h1>
+            <p className="text-center text-lg tracking-wider lg:text-2xl lg:ml-15">Smart inventory</p>
 
             <div className=" w-full h-[45vh] mt-13 lg:h-[50vh] flex justify-center items-center">
                 <ul className={`${ isOpen ? "ul-div" : '' } `}>
@@ -53,6 +54,8 @@ function SideMenu({classname}: props) {
             </div>
 
             <button onClick={handleClick} className="logout-btn">Logout</button>
+
+            </div>
 
         </div>
     </>
