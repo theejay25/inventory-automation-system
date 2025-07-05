@@ -1,0 +1,8 @@
+  const paths = ['dashboard', 'add products', 'products', 'stock logs', 'sales']
+
+
+  <li className="sidemenu-list"><MdOutlineDashboard className='inline mr-2 lg:mr-3' /> Dashboard</li>
+                    <li className="sidemenu-list"><MdAdd className='inline mr-2 lg:mr-3' />Add Products</li>
+                    <li className="sidemenu-list"><LuClipboardList className='inline mr-2 lg:mr-3' />Products</li>
+                    <li className="sidemenu-list"><AiOutlineStock  className='inline mr-2 lg:mr-3' />Stock Logs</li>
+                    <li className="sidemenu-list"><LuClipboardPaste className='inline mr-2 lg:mr-3' />Sales</li>

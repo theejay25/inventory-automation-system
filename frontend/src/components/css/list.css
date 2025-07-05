@@ -1,9 +1,17 @@
 @layer {
     .sidemenu-list {
-        @apply py-3 cursor-pointer ml-10 lg:ml-18 lg:py-5 flex items-center rounded-l-4xl px-5 w-[40vw] lg:w-full
+        @apply py-3 cursor-pointer capitalize ml-10 lg:ml-18 lg:py-5 flex items-center rounded-l-4xl px-5 w-[40vw] lg:w-full
     }
 
     .sidemenu-list:hover {
         @apply bg-[#1a1a1a] duration-100
+    }
+
+    .sidemenu-list-active {
+        @apply bg-[#1a1a1a] duration-100
+    }
+    
+    .icon {
+        @apply inline mr-2 lg:mr-6
     }
 }

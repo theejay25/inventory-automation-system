@@ -1,21 +1,26 @@
 import { FaX } from "react-icons/fa6";
 import { useMenuStore } from "../../store/menuStore";
 import { useAuthStore } from "../../store/authStore";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate, useParams } from "react-router-dom";
+import { useLocation } from "react-router-dom";
 
-//icons
+
+
+// icons
 import { MdOutlineDashboard, MdAdd } from "react-icons/md"
 import { LuClipboardList, LuClipboardPaste } from "react-icons/lu";
 import { AiOutlineStock } from "react-icons/ai";
 
 type props = {
-    classname?: string;
+  classname?: string;
 }
 
 
 function SideMenu({classname}: props) {
-    
-    const {close, isOpen} = useMenuStore()
+  
+  const {close, isOpen} = useMenuStore()
+  
+  const location = useLocation();
 
      const navigate = useNavigate()
   const { logout, error, message } = useAuthStore()
@@ -29,6 +34,33 @@ function SideMenu({classname}: props) {
     }
     console.log(message)
   }
+
+const paths = [
+  { name: "Dashboard", path: "dashboard", icon: <MdOutlineDashboard /> },
+  { name: "Add Products", path: "add-products", icon: <MdAdd /> },
+  { name: "Products", path: "products", icon: <LuClipboardList /> },
+  { name: "Stock Logs", path: "stock-logs", icon: <AiOutlineStock /> },
+  { name: "Sales", path: "sales", icon: <LuClipboardPaste /> },
+];
+
+
+  const params = useParams()
+
+  console.log(params)
+
+    const activeClass = (pathName: string) => {
+    const currentPath = location.pathname;
+
+    // Exact match for dashboard
+    if (pathName === "dashboard") {
+      return currentPath === "/admin-dashboard" || currentPath === "/admin-dashboard/dashboard"
+        ? "active"
+        : "";
+    }
+
+    // Exact match for others
+    return currentPath === `/admin-dashboard/${pathName}` ? "active" : "";
+  };
 
   return (
     <>
@@ -44,13 +76,17 @@ function SideMenu({classname}: props) {
             <p className="text-center text-lg tracking-wider lg:text-2xl lg:ml-15">Smart inventory</p>
 
             <div className=" w-full h-[45vh] mt-13 lg:h-[50vh] flex justify-center items-center">
-                <ul className={`${ isOpen ? "ul-div" : '' } `}>
-                    <li className="sidemenu-list"><MdOutlineDashboard className='inline mr-2 lg:mr-3' /> Dashboard</li>
-                    <li className="sidemenu-list"><MdAdd className='inline mr-2 lg:mr-3' />Add Products</li>
-                    <li className="sidemenu-list"><LuClipboardList className='inline mr-2 lg:mr-3' />Products</li>
-                    <li className="sidemenu-list"><AiOutlineStock  className='inline mr-2 lg:mr-3' />Stock Logs</li>
-                    <li className="sidemenu-list"><LuClipboardPaste className='inline mr-2 lg:mr-3' />Sales</li>
-                </ul>
+             <ul className={`${isOpen ? "ul-div" : ''}`}>
+                {paths.map((item) => (
+                   <li key={item.name} className={`sidemenu-list ${activeClass(item.path) ? 'sidemenu-list-active duration-0' : ''}`}>
+                    <Link to={`/admin-dashboard/${item.path}`} className="flex flex-row justify-center items-center">
+                      <span className="icon">{item.icon}</span>
+                      <span>{item.name}</span>
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+
             </div>
 
             <button onClick={handleClick} className="logout-btn">Logout</button>

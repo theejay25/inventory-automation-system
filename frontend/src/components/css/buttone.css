@@ -1,6 +1,6 @@
 @layer {
     .x-side-div {
-        @apply p-5  mt-1 h-fit w-fit ml-[34w] cursor-pointer lg:hidden
+        @apply p-5  mt-1 h-fit w-fit ml-[34vw] cursor-pointer lg:hidden
     }
 
     .logout-btn {

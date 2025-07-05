@@ -130,7 +130,7 @@ export const useAuthStore = create<props>((set: any) => ({
 
     logout: async (): Promise<void> => {
         try {
-           const response = await axios.post(`${serverUrl}/logout`) 
+           const response = await axios.post(`${serverUrl}/logout`, {}, {withCredentials: true}) 
            set({ user: null, role: null, error: null, message: response.data.message });
         } catch (error: any) {
             console.log(error)

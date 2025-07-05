@@ -322,3 +322,927 @@ OPTIONS http://localhost:8080/api/auth/login
 7/2/2025, 8:10:37 PM 
 POST http://localhost:8080/api/auth/login 
 
+
+7/2/2025, 11:50:33 PM 
+GET http://localhost:8080/api/auth/check-auth 
+
+
+7/2/2025, 11:50:33 PM 
+GET http://localhost:8080/api/auth/check-auth 
+
+
+7/2/2025, 11:50:33 PM 
+GET http://localhost:8080/api/auth/check-auth 
+
+
+7/2/2025, 11:50:33 PM 
+GET http://localhost:8080/api/auth/check-auth 
+
+
+7/2/2025, 11:50:33 PM 
+GET http://localhost:8080/api/auth/check-auth 
+
+
+7/2/2025, 11:50:38 PM 
+GET http://localhost:8080/api/auth/check-auth 
+
+
+7/2/2025, 11:50:38 PM 
+GET http://localhost:8080/api/auth/check-auth 
+
+
+7/2/2025, 11:51:30 PM 
+GET http://localhost:8080/api/auth/check-auth 
+
+
+7/2/2025, 11:51:30 PM 
+GET http://localhost:8080/api/auth/check-auth 
+
+
+7/2/2025, 11:52:32 PM 
+GET http://localhost:8080/api/auth/check-auth 
+
+
+7/2/2025, 11:52:32 PM 
+GET http://localhost:8080/api/auth/check-auth 
+
+
+7/2/2025, 11:52:57 PM 
+OPTIONS http://localhost:8080/api/auth/login 
+
+
+7/2/2025, 11:52:57 PM 
+POST http://localhost:8080/api/auth/login 
+
+
+7/2/2025, 11:53:04 PM 
+GET http://localhost:8080/api/auth/check-auth 
+
+
+7/2/2025, 11:53:04 PM 
+GET http://localhost:8080/api/auth/check-auth 
+
+
+7/2/2025, 11:53:30 PM 
+GET http://localhost:8080/api/auth/check-auth 
+
+
+7/2/2025, 11:53:30 PM 
+GET http://localhost:8080/api/auth/check-auth 
+
+
+7/3/2025, 12:02:15 AM 
+GET http://localhost:8080/api/auth/check-auth 
+
+
+7/3/2025, 12:02:15 AM 
+GET http://localhost:8080/api/auth/check-auth 
+
+
+7/3/2025, 12:02:25 AM 
+GET http://localhost:8080/api/auth/check-auth 
+
+
+7/3/2025, 12:02:25 AM 
+GET http://localhost:8080/api/auth/check-auth 
+
+
+7/3/2025, 12:02:30 AM 
+GET http://localhost:8080/api/auth/check-auth 
+
+
+7/3/2025, 12:02:30 AM 
+GET http://localhost:8080/api/auth/check-auth 
+
+
+7/3/2025, 12:02:38 AM 
+GET http://localhost:8080/api/auth/check-auth 
+
+
+7/3/2025, 12:02:38 AM 
+GET http://localhost:8080/api/auth/check-auth 
+
+
+7/3/2025, 12:03:42 AM 
+POST http://localhost:8080/api/auth/logout 
+
+
+7/3/2025, 12:16:21 AM 
+GET http://localhost:8080/api/auth/check-auth 
+
+
+7/3/2025, 12:16:26 AM 
+GET http://localhost:8080/api/auth/check-auth 
+
+
+7/3/2025, 12:16:26 AM 
+GET http://localhost:8080/api/auth/check-auth 
+
+
+7/3/2025, 12:16:32 AM 
+GET http://localhost:8080/api/auth/check-auth 
+
+
+7/3/2025, 12:16:32 AM 
+GET http://localhost:8080/api/auth/check-auth 
+
+
+7/3/2025, 12:16:38 AM 
+GET http://localhost:8080/api/auth/check-auth 
+
+
+7/3/2025, 12:16:38 AM 
+GET http://localhost:8080/api/auth/check-auth 
+
+
+7/3/2025, 12:17:30 AM 
+OPTIONS http://localhost:8080/api/auth/login 
+
+
+7/3/2025, 12:17:30 AM 
+POST http://localhost:8080/api/auth/login 
+
+
+7/3/2025, 12:17:34 AM 
+POST http://localhost:8080/api/auth/logout 
+
+
+7/3/2025, 12:17:38 AM 
+GET http://localhost:8080/api/auth/check-auth 
+
+
+7/3/2025, 12:17:38 AM 
+GET http://localhost:8080/api/auth/check-auth 
+
+
+7/3/2025, 12:18:01 AM 
+GET http://localhost:8080/api/auth/check-auth 
+
+
+7/3/2025, 12:18:01 AM 
+GET http://localhost:8080/api/auth/check-auth 
+
+
+7/3/2025, 12:18:07 AM 
+GET http://localhost:8080/api/auth/check-auth 
+
+
+7/3/2025, 12:18:07 AM 
+GET http://localhost:8080/api/auth/check-auth 
+
+
+7/3/2025, 12:23:41 AM 
+GET http://localhost:8080/api/auth/check-auth 
+
+
+7/3/2025, 12:24:42 AM 
+OPTIONS http://localhost:8080/api/auth/login 
+
+
+7/3/2025, 12:24:42 AM 
+POST http://localhost:8080/api/auth/login 
+
+
+7/3/2025, 12:24:48 AM 
+OPTIONS http://localhost:8080/api/auth/login 
+
+
+7/3/2025, 12:24:48 AM 
+POST http://localhost:8080/api/auth/login 
+
+
+7/3/2025, 12:25:20 AM 
+OPTIONS http://localhost:8080/api/auth/login 
+
+
+7/3/2025, 12:25:20 AM 
+POST http://localhost:8080/api/auth/login 
+
+
+7/3/2025, 12:25:26 AM 
+OPTIONS http://localhost:8080/api/auth/login 
+
+
+7/3/2025, 12:25:26 AM 
+POST http://localhost:8080/api/auth/login 
+
+
+7/3/2025, 12:25:31 AM 
+OPTIONS http://localhost:8080/api/auth/logout 
+
+
+7/3/2025, 12:25:31 AM 
+POST http://localhost:8080/api/auth/logout 
+
+
+7/3/2025, 12:25:50 AM 
+OPTIONS http://localhost:8080/api/auth/login 
+
+
+7/3/2025, 12:25:50 AM 
+POST http://localhost:8080/api/auth/login 
+
+
+7/3/2025, 12:26:44 AM 
+OPTIONS http://localhost:8080/api/auth/login 
+
+
+7/3/2025, 12:26:44 AM 
+POST http://localhost:8080/api/auth/login 
+
+
+7/3/2025, 12:26:48 AM 
+OPTIONS http://localhost:8080/api/auth/logout 
+
+
+7/3/2025, 12:26:48 AM 
+POST http://localhost:8080/api/auth/logout 
+
+
+7/3/2025, 5:55:46 PM 
+GET http://localhost:8080/api/auth/check-auth 
+
+
+7/3/2025, 5:55:46 PM 
+GET http://localhost:8080/api/auth/check-auth 
+
+
+7/3/2025, 5:56:18 PM 
+OPTIONS http://localhost:8080/api/auth/login 
+
+
+7/3/2025, 5:56:18 PM 
+POST http://localhost:8080/api/auth/login 
+
+
+7/4/2025, 2:26:54 PM 
+GET http://localhost:8080/api/auth/check-auth 
+
+
+7/4/2025, 2:26:54 PM 
+GET http://localhost:8080/api/auth/check-auth 
+
+
+7/4/2025, 2:27:20 PM 
+OPTIONS http://localhost:8080/api/auth/login 
+
+
+7/4/2025, 2:27:20 PM 
+POST http://localhost:8080/api/auth/login 
+
+
+7/4/2025, 2:29:22 PM 
+GET http://localhost:8080/api/auth/check-auth 
+
+
+7/4/2025, 2:29:22 PM 
+GET http://localhost:8080/api/auth/check-auth 
+
+
+7/4/2025, 2:29:22 PM 
+GET http://localhost:8080/api/auth/check-auth 
+
+
+7/4/2025, 2:29:22 PM 
+GET http://localhost:8080/api/auth/check-auth 
+
+
+7/4/2025, 2:29:22 PM 
+GET http://localhost:8080/api/auth/check-auth 
+
+
+7/4/2025, 2:29:22 PM 
+GET http://localhost:8080/api/auth/check-auth 
+
+
+7/4/2025, 2:29:22 PM 
+GET http://localhost:8080/api/auth/check-auth 
+
+
+7/4/2025, 2:29:22 PM 
+GET http://localhost:8080/api/auth/check-auth 
+
+
+7/4/2025, 2:29:22 PM 
+GET http://localhost:8080/api/auth/check-auth 
+
+
+7/4/2025, 2:29:22 PM 
+GET http://localhost:8080/api/auth/check-auth 
+
+
+7/4/2025, 2:29:39 PM 
+OPTIONS http://localhost:8080/api/auth/login 
+
+
+7/4/2025, 2:29:39 PM 
+OPTIONS http://localhost:8080/api/auth/login 
+
+
+7/4/2025, 2:29:39 PM 
+OPTIONS http://localhost:8080/api/auth/login 
+
+
+7/4/2025, 2:29:39 PM 
+OPTIONS http://localhost:8080/api/auth/login 
+
+
+7/4/2025, 2:29:39 PM 
+OPTIONS http://localhost:8080/api/auth/login 
+
+
+7/4/2025, 2:29:39 PM 
+POST http://localhost:8080/api/auth/login 
+
+
+7/4/2025, 2:29:39 PM 
+POST http://localhost:8080/api/auth/login 
+
+
+7/4/2025, 2:29:39 PM 
+POST http://localhost:8080/api/auth/login 
+
+
+7/4/2025, 2:29:39 PM 
+POST http://localhost:8080/api/auth/login 
+
+
+7/4/2025, 2:29:39 PM 
+POST http://localhost:8080/api/auth/login 
+
+
+7/4/2025, 2:29:44 PM 
+POST http://localhost:8080/api/auth/login 
+
+
+7/4/2025, 2:29:44 PM 
+POST http://localhost:8080/api/auth/login 
+
+
+7/4/2025, 2:29:44 PM 
+POST http://localhost:8080/api/auth/login 
+
+
+7/4/2025, 2:29:44 PM 
+POST http://localhost:8080/api/auth/login 
+
+
+7/4/2025, 2:29:50 PM 
+OPTIONS http://localhost:8080/api/auth/login 
+
+
+7/4/2025, 2:29:50 PM 
+OPTIONS http://localhost:8080/api/auth/login 
+
+
+7/4/2025, 2:29:50 PM 
+OPTIONS http://localhost:8080/api/auth/login 
+
+
+7/4/2025, 2:29:50 PM 
+POST http://localhost:8080/api/auth/login 
+
+
+7/4/2025, 2:29:50 PM 
+POST http://localhost:8080/api/auth/login 
+
+
+7/4/2025, 2:29:50 PM 
+POST http://localhost:8080/api/auth/login 
+
+
+7/4/2025, 2:29:50 PM 
+POST http://localhost:8080/api/auth/login 
+
+
+7/4/2025, 2:29:55 PM 
+POST http://localhost:8080/api/auth/login 
+
+
+7/4/2025, 2:29:55 PM 
+POST http://localhost:8080/api/auth/login 
+
+
+7/4/2025, 2:29:55 PM 
+POST http://localhost:8080/api/auth/login 
+
+
+7/4/2025, 2:29:55 PM 
+POST http://localhost:8080/api/auth/login 
+
+
+7/4/2025, 2:32:09 PM 
+GET http://localhost:8080/api/auth/check-auth 
+
+
+7/4/2025, 2:32:09 PM 
+GET http://localhost:8080/api/auth/check-auth 
+
+
+7/4/2025, 2:32:09 PM 
+GET http://localhost:8080/api/auth/check-auth 
+
+
+7/4/2025, 2:32:09 PM 
+GET http://localhost:8080/api/auth/check-auth 
+
+
+7/4/2025, 2:32:24 PM 
+OPTIONS http://localhost:8080/api/auth/login 
+
+
+7/4/2025, 2:32:24 PM 
+OPTIONS http://localhost:8080/api/auth/login 
+
+
+7/4/2025, 2:32:24 PM 
+OPTIONS http://localhost:8080/api/auth/login 
+
+
+7/4/2025, 2:32:24 PM 
+OPTIONS http://localhost:8080/api/auth/login 
+
+
+7/4/2025, 2:32:24 PM 
+OPTIONS http://localhost:8080/api/auth/login 
+
+
+7/4/2025, 2:32:24 PM 
+POST http://localhost:8080/api/auth/login 
+
+
+7/4/2025, 2:32:24 PM 
+POST http://localhost:8080/api/auth/login 
+
+
+7/4/2025, 2:32:24 PM 
+POST http://localhost:8080/api/auth/login 
+
+
+7/4/2025, 2:32:24 PM 
+POST http://localhost:8080/api/auth/login 
+
+
+7/4/2025, 2:32:24 PM 
+POST http://localhost:8080/api/auth/login 
+
+
+7/4/2025, 2:34:50 PM 
+GET http://localhost:8080/api/auth/check-auth 
+
+
+7/4/2025, 2:34:50 PM 
+GET http://localhost:8080/api/auth/check-auth 
+
+
+7/4/2025, 2:34:50 PM 
+GET http://localhost:8080/api/auth/check-auth 
+
+
+7/4/2025, 2:34:51 PM 
+GET http://localhost:8080/api/auth/check-auth 
+
+
+7/4/2025, 2:34:51 PM 
+GET http://localhost:8080/api/auth/check-auth 
+
+
+7/4/2025, 2:34:51 PM 
+GET http://localhost:8080/api/auth/check-auth 
+
+
+7/4/2025, 2:34:51 PM 
+GET http://localhost:8080/api/auth/check-auth 
+
+
+7/4/2025, 2:34:51 PM 
+GET http://localhost:8080/api/auth/check-auth 
+
+
+7/4/2025, 2:34:51 PM 
+GET http://localhost:8080/api/auth/check-auth 
+
+
+7/4/2025, 2:34:51 PM 
+GET http://localhost:8080/api/auth/check-auth 
+
+
+7/4/2025, 2:37:31 PM 
+GET http://localhost:8080/api/auth/check-auth 
+
+
+7/4/2025, 2:37:31 PM 
+GET http://localhost:8080/api/auth/check-auth 
+
+
+7/4/2025, 2:37:49 PM 
+GET http://localhost:8080/api/auth/check-auth 
+
+
+7/4/2025, 2:37:49 PM 
+GET http://localhost:8080/api/auth/check-auth 
+
+
+7/4/2025, 2:38:04 PM 
+OPTIONS http://localhost:8080/api/auth/login 
+
+
+7/4/2025, 2:38:04 PM 
+POST http://localhost:8080/api/auth/login 
+
+
+7/4/2025, 2:38:42 PM 
+GET http://localhost:8080/api/auth/check-auth 
+
+
+7/4/2025, 2:38:42 PM 
+GET http://localhost:8080/api/auth/check-auth 
+
+
+7/4/2025, 2:49:38 PM 
+GET http://localhost:8080/api/auth/check-auth 
+
+
+7/4/2025, 2:49:38 PM 
+GET http://localhost:8080/api/auth/check-auth 
+
+
+7/4/2025, 2:49:50 PM 
+GET http://localhost:8080/api/auth/check-auth 
+
+
+7/4/2025, 2:49:50 PM 
+GET http://localhost:8080/api/auth/check-auth 
+
+
+7/4/2025, 2:50:05 PM 
+OPTIONS http://localhost:8080/api/auth/login 
+
+
+7/4/2025, 2:50:05 PM 
+POST http://localhost:8080/api/auth/login 
+
+
+7/4/2025, 2:50:13 PM 
+GET http://localhost:8080/api/auth/check-auth 
+
+
+7/4/2025, 2:50:13 PM 
+GET http://localhost:8080/api/auth/check-auth 
+
+
+7/4/2025, 2:50:30 PM 
+GET http://localhost:8080/api/auth/check-auth 
+
+
+7/4/2025, 2:50:30 PM 
+GET http://localhost:8080/api/auth/check-auth 
+
+
+7/5/2025, 2:47:10 PM 
+GET http://localhost:8080/api/auth/check-auth 
+
+
+7/5/2025, 2:47:10 PM 
+GET http://localhost:8080/api/auth/check-auth 
+
+
+7/5/2025, 2:47:24 PM 
+OPTIONS http://localhost:8080/api/auth/login 
+
+
+7/5/2025, 2:47:24 PM 
+POST http://localhost:8080/api/auth/login 
+
+
+7/5/2025, 2:50:16 PM 
+GET http://192.168.29.17:8080/ 
+
+
+7/5/2025, 2:50:27 PM 
+GET http://192.168.29.17/HNAP1/ 
+
+
+7/5/2025, 2:50:33 PM 
+GET http://192.168.29.17:8080/ 
+
+
+7/5/2025, 2:50:40 PM 
+GET http://192.168.29.17/loginMsg.js 
+
+
+7/5/2025, 2:50:40 PM 
+GET http://192.168.29.17/cgi/get.cgi?cmd=home_login 
+
+
+7/5/2025, 4:22:16 PM 
+GET http://localhost:8080/api/auth/check-auth 
+
+
+7/5/2025, 4:22:16 PM 
+GET http://localhost:8080/api/auth/check-auth 
+
+
+7/5/2025, 4:22:16 PM 
+GET http://localhost:8080/api/auth/check-auth 
+
+
+7/5/2025, 4:22:16 PM 
+GET http://localhost:8080/api/auth/check-auth 
+
+
+7/5/2025, 4:22:16 PM 
+GET http://localhost:8080/api/auth/check-auth 
+
+
+7/5/2025, 4:22:16 PM 
+GET http://localhost:8080/api/auth/check-auth 
+
+
+7/5/2025, 4:22:17 PM 
+GET http://localhost:8080/api/auth/check-auth 
+
+
+7/5/2025, 4:22:17 PM 
+GET http://localhost:8080/api/auth/check-auth 
+
+
+7/5/2025, 4:22:17 PM 
+GET http://localhost:8080/api/auth/check-auth 
+
+
+7/5/2025, 4:22:17 PM 
+GET http://localhost:8080/api/auth/check-auth 
+
+
+7/5/2025, 4:22:26 PM 
+OPTIONS http://localhost:8080/api/auth/login 
+
+
+7/5/2025, 4:22:26 PM 
+OPTIONS http://localhost:8080/api/auth/login 
+
+
+7/5/2025, 4:22:26 PM 
+POST http://localhost:8080/api/auth/login 
+
+
+7/5/2025, 4:22:26 PM 
+OPTIONS http://localhost:8080/api/auth/login 
+
+
+7/5/2025, 4:22:26 PM 
+POST http://localhost:8080/api/auth/login 
+
+
+7/5/2025, 4:22:26 PM 
+POST http://localhost:8080/api/auth/login 
+
+
+7/5/2025, 4:22:26 PM 
+POST http://localhost:8080/api/auth/login 
+
+
+7/5/2025, 4:22:26 PM 
+POST http://localhost:8080/api/auth/login 
+
+
+7/5/2025, 4:22:32 PM 
+OPTIONS http://localhost:8080/api/auth/login 
+
+
+7/5/2025, 4:22:32 PM 
+OPTIONS http://localhost:8080/api/auth/login 
+
+
+7/5/2025, 4:22:32 PM 
+OPTIONS http://localhost:8080/api/auth/login 
+
+
+7/5/2025, 4:22:32 PM 
+POST http://localhost:8080/api/auth/login 
+
+
+7/5/2025, 4:22:32 PM 
+POST http://localhost:8080/api/auth/login 
+
+
+7/5/2025, 4:22:32 PM 
+POST http://localhost:8080/api/auth/login 
+
+
+7/5/2025, 4:22:32 PM 
+POST http://localhost:8080/api/auth/login 
+
+
+7/5/2025, 4:22:35 PM 
+POST http://localhost:8080/api/auth/login 
+
+
+7/5/2025, 4:22:35 PM 
+POST http://localhost:8080/api/auth/login 
+
+
+7/5/2025, 4:22:35 PM 
+POST http://localhost:8080/api/auth/login 
+
+
+7/5/2025, 4:22:35 PM 
+POST http://localhost:8080/api/auth/login 
+
+
+7/5/2025, 5:26:08 PM 
+GET http://localhost:8080/api/auth/check-auth 
+
+
+7/5/2025, 5:26:08 PM 
+GET http://localhost:8080/api/auth/check-auth 
+
+
+7/5/2025, 5:30:49 PM 
+OPTIONS http://localhost:8080/api/auth/login 
+
+
+7/5/2025, 5:30:49 PM 
+POST http://localhost:8080/api/auth/login 
+
+
+7/5/2025, 5:30:59 PM 
+OPTIONS http://localhost:8080/api/auth/login 
+
+
+7/5/2025, 5:30:59 PM 
+POST http://localhost:8080/api/auth/login 
+
+
+7/5/2025, 6:20:19 PM 
+GET http://localhost:8080/api/auth/check-auth 
+
+
+7/5/2025, 6:20:19 PM 
+GET http://localhost:8080/api/auth/check-auth 
+
+
+7/5/2025, 6:38:42 PM 
+OPTIONS http://localhost:8080/api/auth/login 
+
+
+7/5/2025, 6:38:42 PM 
+POST http://localhost:8080/api/auth/login 
+
+
+7/5/2025, 6:39:13 PM 
+OPTIONS http://localhost:8080/api/auth/login 
+
+
+7/5/2025, 6:39:13 PM 
+POST http://localhost:8080/api/auth/login 
+
+
+7/5/2025, 6:39:36 PM 
+GET http://localhost:8080/api/auth/check-auth 
+
+
+7/5/2025, 6:39:36 PM 
+GET http://localhost:8080/api/auth/check-auth 
+
+
+7/5/2025, 6:39:36 PM 
+GET http://localhost:8080/api/auth/check-auth 
+
+
+7/5/2025, 6:39:36 PM 
+GET http://localhost:8080/api/auth/check-auth 
+
+
+7/5/2025, 6:39:36 PM 
+GET http://localhost:8080/api/auth/check-auth 
+
+
+7/5/2025, 6:39:36 PM 
+GET http://localhost:8080/api/auth/check-auth 
+
+
+7/5/2025, 6:39:36 PM 
+GET http://localhost:8080/api/auth/check-auth 
+
+
+7/5/2025, 6:39:36 PM 
+GET http://localhost:8080/api/auth/check-auth 
+
+
+7/5/2025, 6:39:36 PM 
+GET http://localhost:8080/api/auth/check-auth 
+
+
+7/5/2025, 6:39:36 PM 
+GET http://localhost:8080/api/auth/check-auth 
+
+
+7/5/2025, 6:40:24 PM 
+OPTIONS http://localhost:8080/api/auth/login 
+
+
+7/5/2025, 6:40:24 PM 
+OPTIONS http://localhost:8080/api/auth/login 
+
+
+7/5/2025, 6:40:24 PM 
+OPTIONS http://localhost:8080/api/auth/login 
+
+
+7/5/2025, 6:40:24 PM 
+POST http://localhost:8080/api/auth/login 
+
+
+7/5/2025, 6:40:24 PM 
+POST http://localhost:8080/api/auth/login 
+
+
+7/5/2025, 6:40:24 PM 
+POST http://localhost:8080/api/auth/login 
+
+
+7/5/2025, 6:40:24 PM 
+POST http://localhost:8080/api/auth/login 
+
+
+7/5/2025, 6:40:24 PM 
+POST http://localhost:8080/api/auth/login 
+
+
+7/5/2025, 6:40:28 PM 
+POST http://localhost:8080/api/auth/login 
+
+
+7/5/2025, 6:40:28 PM 
+POST http://localhost:8080/api/auth/login 
+
+
+7/5/2025, 6:40:28 PM 
+POST http://localhost:8080/api/auth/login 
+
+
+7/5/2025, 6:40:28 PM 
+POST http://localhost:8080/api/auth/login 
+
+
+7/5/2025, 6:40:28 PM 
+POST http://localhost:8080/api/auth/login 
+
+
+7/5/2025, 6:44:51 PM 
+GET http://localhost:8080/api/auth/check-auth 
+
+
+7/5/2025, 6:44:51 PM 
+GET http://localhost:8080/api/auth/check-auth 
+
+
+7/5/2025, 6:44:51 PM 
+GET http://localhost:8080/api/auth/check-auth 
+
+
+7/5/2025, 6:44:51 PM 
+GET http://localhost:8080/api/auth/check-auth 
+
+
+7/5/2025, 6:44:51 PM 
+GET http://localhost:8080/api/auth/check-auth 
+
+
+7/5/2025, 6:44:51 PM 
+GET http://localhost:8080/api/auth/check-auth 
+
+
+7/5/2025, 6:44:51 PM 
+GET http://localhost:8080/api/auth/check-auth 
+
+
+7/5/2025, 6:44:51 PM 
+GET http://localhost:8080/api/auth/check-auth 
+
+
+7/5/2025, 6:44:51 PM 
+GET http://localhost:8080/api/auth/check-auth 
+
+
+7/5/2025, 6:44:51 PM 
+GET http://localhost:8080/api/auth/check-auth 
+
+
+7/5/2025, 6:44:53 PM 
+GET http://localhost:8080/api/auth/check-auth 
+
+
+7/5/2025, 6:44:53 PM 
+GET http://localhost:8080/api/auth/check-auth 
+
+
+7/5/2025, 6:45:04 PM 
+OPTIONS http://localhost:8080/api/auth/login 
+
+
+7/5/2025, 6:45:04 PM 
+POST http://localhost:8080/api/auth/login 
+
