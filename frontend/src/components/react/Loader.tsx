@@ -1,12 +1,8 @@
 // GlitchLoader.tsx
-import '../css/glitch.css'
+import '../css/loader.css'
 
 export default function GlitchLoader() {
   return (
-    <div className="glitch">
-      <div data-glitch="Loading..." className="glitch-text">
-        Loading...
-      </div>
-    </div>
+    <div className="loader"></div>
   );
 }

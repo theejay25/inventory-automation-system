@@ -24,7 +24,7 @@ const serverUrl = 'http://localhost:8080/api/auth'
 export const useAuthStore = create<props>((set: any) => ({
     user: {},
     isAuthenticated: false,
-    isCheckingAuth: false,
+    isCheckingAuth: true,
     isLoading: false,
     error: '',
     role: '',
@@ -181,27 +181,40 @@ export const useAuthStore = create<props>((set: any) => ({
       }
     },
 
-    checkAuth: async (): Promise<void> => {
-      set ({isCheckingAuth: true, isAuthenticated: false, error: null})
+   checkAuth: async (): Promise<void> => {
+  set({ isCheckingAuth: true, error: null }); // Don't reset isAuthenticated yet
 
-      try {
-        
-        const response = await axios.get(`${serverUrl}/check-auth`)
-        
-        if(response.data.user){
-                set({isCheckingAuth: false, isAuthenticated: true, user: response.data.user})
+  try {
+    const response = await axios.get(`${serverUrl}/check-auth`, {
+      withCredentials: true, // VERY IMPORTANT for cookies!
+    });
 
-            } else {
-                set({isCheckingAuth: false, isAuthenticated: false, user: null})
+    if (response.data.user) {
+      set({
+        isAuthenticated: true,
+        user: response.data.user,
+      });
+      console.log("Checking auth...");
+      console.log("Response:", response.data);
 
-            }
-
-      } catch (error: any) {
-        console.log(error)
-        set ({isCheckingAuth: false, isAuthenticated: false, error: error.message, user:null})
-
-      }
+    } else {
+      set({
+        isAuthenticated: false,
+        user: null,
+      });
     }
+  } catch (error: any) {
+    console.error("checkAuth error", error);
+    set({
+      isAuthenticated: false,
+      user: null,
+      error: error.message,
+    });
+  } finally {
+    set({ isCheckingAuth: false });
+  }
+  }
+
 
 
 }))

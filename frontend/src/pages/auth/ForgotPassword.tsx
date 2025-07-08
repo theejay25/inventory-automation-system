@@ -55,7 +55,7 @@ function ForgotPassword() {
               <button
                   disabled={isLoading}
                   type="submit"
-                  className="text-white w-full text-center p-3 mb-2 rounded-md bg-[#0A2463]"
+                  className="text-white w-full text-center p-3 mb-2 rounded-md bg-[#0A2463] flex justify-center items-center"
               >
                   {isLoading ? <GlitchLoader /> : "Submit"}
               </button>

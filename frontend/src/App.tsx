@@ -1,4 +1,6 @@
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom'
+
+//pages
 import SignupPage from './pages/auth/SignupPage'
 import SigninPage from './pages/auth/SigninPage'
 import VerifyEmailPage from './pages/auth/VerifyEmailPage'
@@ -15,21 +17,30 @@ type Props = {
 }
 
 const ProtectedRoute = ({ children }: Props) => {
-  const { isAuthenticated, user, isCheckingAuth } = useAuthStore()
+  const { isAuthenticated, user, isCheckingAuth } = useAuthStore();
 
   if (isCheckingAuth) {
-    return <div>Loading...</div>
+    return <div>Loading...</div>; // Don't redirect yet
   }
 
-  if (!isAuthenticated && !user) {
-    return <Navigate to='/' replace />
+  if (!isAuthenticated || !user) {
+    return <Navigate to="/" replace />;
   }
 
-  return <>{children}</>
-}
+  return <>{children}</>;
+};
+
+
+
 
 function App() {
+  
   const { checkAuth } = useAuthStore()
+
+  useEffect(() => {
+  console.log("App mounted — calling checkAuth");
+  checkAuth();
+}, [checkAuth]);
 
 
   useEffect(() => {
