@@ -1,7 +1,8 @@
-import { useState, type ChangeEvent } from "react"
+import { useEffect, useState, type ChangeEvent } from "react"
 import { Link, useNavigate } from "react-router-dom"
 import { useAuthStore } from "../../store/authStore"
-import GlitchLoader from "../../components/react/Loader"
+import ButtonLoader from "../../components/react/ButtonLoader"
+import ToastModal from "../../components/react/ToastModal"
 
 function SigninPage() {
 
@@ -10,13 +11,13 @@ function SigninPage() {
 
     const navigate = useNavigate()
 
-    const {login, user, isLoading, error, message} = useAuthStore()
+    const {login, user, isLoading, formError, message} = useAuthStore()
 
     const handleSubmit = async (e: {preventDefault: () => void}) => {
         e.preventDefault()
 
         console.log(user)
-        console.log(error)
+        console.log(formError)
         console.log(message)
 
       const result: any = await login(email, password);
@@ -34,8 +35,19 @@ function SigninPage() {
         }
     }
 
+    const [check, setCheck] = useState(false)
+
+    useEffect (() => {
+        setTimeout(() => {
+            setCheck(true)
+        }, 2000)
+    }, [])
+
   return (
     <>
+           { formError && (<ToastModal classname={`${check ? ' toast-div top-10 left-26 lg:left-[42vw] bg-red-500 opacity-100' : 'left-26 lg:left-[42vw] top-7 opacity-0'}`} >
+                <p>{formError}</p>
+            </ToastModal>)}
         <div className=" h-[100vh] flex justify-center items-center">
             <div className="bg-[#2c2c2c] p-3">
                 <div className="h-fit text-white font-semibold text-2xl py-3">SignIn</div>
@@ -73,11 +85,9 @@ function SigninPage() {
                                 type="submit"
                                 className="text-white w-full text-center p-3 mb-2 rounded-md bg-[#0A2463] flex justify-center items-center"
                             >
-                                {isLoading ? <GlitchLoader /> : "SignIn"}
+                                {isLoading ? <ButtonLoader /> : "SignIn"}
                             </button>
                         </form>
-
-                            {error && <p className="text-red-500 text-center mb-4">{error}</p>}
 
                             <Link to={'/forgot-password'} className="text-white ml-[34%]">Forgot Password</Link>
                       

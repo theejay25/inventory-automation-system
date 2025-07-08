@@ -1,0 +1,5 @@
+@layer {
+    .notready-text {
+        @apply text-white text-center text-[15px]
+    }
+}

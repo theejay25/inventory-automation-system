@@ -1,16 +1,17 @@
 import { useState } from "react"
 import { Link, useNavigate } from "react-router-dom"
 import { useAuthStore } from "../../store/authStore"
-import GlitchLoader from "../../components/react/Loader"
+import ButtonLoader from "../../components/react/ButtonLoader"
+import ToastModal from "../../components/react/ToastModal"
 
 function SignupPage() {
 
-    const [sent, setSent] = useState(false)
+    const [sent, setSent] = useState('')
     const [name, setName] = useState('')
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
 
-    const {signup, error, user, isLoading} = useAuthStore()
+    const {signup, formError, user, isLoading} = useAuthStore()
 
     const navigate = useNavigate()
 
@@ -20,17 +21,17 @@ function SignupPage() {
 
     console.log(user)
 
-    console.log(error)
+    console.log(formError)
 
     await signup(name, email, password)
 
-      if (error) {
-        setSent(false); // don't show success message
+      if (formError) {
+        setSent('A verification token has been sent to your email'); // don't show success message
         return; // stop here if there's an error
     }
 
 
-    setSent(true)
+    setSent('A verification token has ben sent to Your email')
 
         setTimeout(() => {
             navigate('/verify-email');
@@ -42,6 +43,9 @@ function SignupPage() {
 
   return (
     <>
+        <ToastModal classname={` ${formError ? 'bg-red-500 top-10 lg:left-[42vw]' : 'bg-green-400 top-10 lg:left-[40vw]'} toast-div top-6 left-26`} >
+            {formError ? formError : sent}
+        </ToastModal>
         <div className=" h-[100vh] flex justify-center items-center">
             <div className="bg-[#2c2c2c] p-3">
                 <div className="h-fit text-white font-semibold text-2xl py-3">SignUp</div>
@@ -85,20 +89,14 @@ function SignupPage() {
                               />
                             </div>
 
-                            {sent && (
-                                <div className="p-3 bg-green-500 rounded-md text-center text-white mb-3">Login code has been sent to your Email</div>
-                            )}
-
                              <button
                                 disabled={isLoading}
                                 type="submit"
                                 className="text-white w-full text-center p-3 mb-2 rounded-md bg-[#0A2463] flex justify-center items-center"
                             >
-                                {isLoading ? <GlitchLoader /> : "SignIn"}
+                                {isLoading ? <ButtonLoader /> : "SignUp"}
                             </button>
                         </form>
-
-                        {error && <p className="text-red-500 text-center mb-2">{error}</p>}
 
                         <p className="text-center text-white">Already have an Account? <Link to={'/'}>SignIn</Link></p>
                     </div>

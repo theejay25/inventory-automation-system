@@ -6,4 +6,8 @@
     .ul-div {
         @apply w-[100vw] p-5 text-start  text-xl lg:text-3xl ml-50 lg:w-[25vw] fixed lg:ml-[0vw] md:ml-[-4vw]
     }
+
+    .toast-div {
+        @apply fixed min-w-50 text-center p-3  rounded-md text-white duration-300
+    }
 }

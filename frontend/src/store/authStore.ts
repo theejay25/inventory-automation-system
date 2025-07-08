@@ -6,7 +6,8 @@ type props = {
     isAuthenticated: boolean;
     isCheckingAuth: boolean;
     isLoading: boolean;
-    error: string;
+    formError: string;
+    checkAuthError:string;
     role: string;
     success: string;
     message: string;
@@ -26,14 +27,15 @@ export const useAuthStore = create<props>((set: any) => ({
     isAuthenticated: false,
     isCheckingAuth: true,
     isLoading: false,
-    error: '',
+    formError: '',
+    checkAuthError: '',
     role: '',
     message: '',
     success: '',
 
     signup: async (name: string, email: string, password: string): Promise<{} | null> => {
 
-      set({isLoading: true, error: null, user: null })
+      set({isLoading: true, formError: null, user: null })
 
       try {
           const response = await axios.post(`${serverUrl}/signup`, {name, email, password}, {withCredentials: true} )
@@ -49,13 +51,13 @@ export const useAuthStore = create<props>((set: any) => ({
           }
       } catch (error: any) {
         console.log(error)
-        set({isLoading: false, user: null, error: error.message})
+        set({isLoading: false, user: null, formError: error.message})
         return null;
       }
     },
 
     verifyEmail: async (code: string): Promise<{} | null> => {
-        set({isLoading: true, user: null, error: null})
+        set({isLoading: true, user: null, formError: null})
 
        try {
          const response = await axios.post(`${serverUrl}/verify-email`, {code}, {withCredentials: true})
@@ -71,14 +73,14 @@ export const useAuthStore = create<props>((set: any) => ({
           }
        } catch (error: any) {
             console.log(error)
-            set({isLoading: true, user: null, error: error.message})
+            set({isLoading: false, user: null, formError: error.message})
             return null
        }
     },
 
     login: async (email: string, password: string): Promise<{} | null> => {
 
-        set({isLoading: true, user: null, error: null, isCheckingAuth: true, isAuthenticated: false, role: null})
+        set({isLoading: true, user: null, formError: null, isCheckingAuth: true, isAuthenticated: false, role: null})
 
    try {
     const response = await axios.post(`${serverUrl}/login`, { email, password }, { withCredentials: true });
@@ -91,7 +93,7 @@ export const useAuthStore = create<props>((set: any) => ({
       set({
         isLoading: false,
         user,
-        error: null,
+        fromError: null,
         isCheckingAuth: false,
         isAuthenticated: true,
         role,
@@ -102,13 +104,13 @@ export const useAuthStore = create<props>((set: any) => ({
     } else {
       set({
         isLoading: false,
-        error: response.data.message || 'Login failed',
+        formError: response.data.message || 'Login failed',
         isCheckingAuth: false,
         isAuthenticated: false,
         role: null
       });
 
-      return { success: false, error: response.data.message || 'Login failed' };
+      return { success: false, formError: response.data.message || 'Login failed' };
     }
   } catch (error: any) {
     console.error(error);
@@ -118,7 +120,7 @@ export const useAuthStore = create<props>((set: any) => ({
     set({
       isLoading: false,
       user: null,
-      error: errMsg,
+      formError: errMsg,
       isCheckingAuth: false,
       isAuthenticated: false,
       role: null
@@ -131,15 +133,15 @@ export const useAuthStore = create<props>((set: any) => ({
     logout: async (): Promise<void> => {
         try {
            const response = await axios.post(`${serverUrl}/logout`, {}, {withCredentials: true}) 
-           set({ user: null, role: null, error: null, message: response.data.message });
+           set({ user: null, role: null, formError: null, message: response.data.message });
         } catch (error: any) {
             console.log(error)
-            set({ error: error.message})
+            set({ formError: error.message})
         }
     },
 
     forgotPassword: async(email: string): Promise<{} | null> => {
-      set({isLoading: true, user: null, error: null, message: null, role: null})
+      set({isLoading: true, user: null, formError: null, message: null, role: null})
 
       try {
        const response = await axios.post(`${serverUrl}/forgot-password`, {email}, {withCredentials: true});
@@ -155,7 +157,7 @@ export const useAuthStore = create<props>((set: any) => ({
 
       } catch (error: any) {
         console.log(error)
-        set({isLoading: false, user: null, error: error.message, message: null})
+        set({isLoading: false, user: null, formError: error.message, message: null})
 
         return null
 
@@ -169,20 +171,20 @@ export const useAuthStore = create<props>((set: any) => ({
         
         const response = await axios.post(`${serverUrl}/reset-password/${token}`, {password}, {withCredentials: true})
 
-        set({user: response.data.user, error: null, isLoading: false})  
+        set({user: response.data.user, formError: null, isLoading: false})  
 
         return response.data
 
       } catch (error: any) {
         
         console.log(error)
-        set({isLoading: false, error: error.message, user: null})
+        set({isLoading: false, formError: error.message, user: null})
         return { success: false, message: error.message };  // ✅ always return fallback shape
       }
     },
 
    checkAuth: async (): Promise<void> => {
-  set({ isCheckingAuth: true, error: null }); // Don't reset isAuthenticated yet
+  set({ isCheckingAuth: true, checkAuthError: null }); // Don't reset isAuthenticated yet
 
   try {
     const response = await axios.get(`${serverUrl}/check-auth`, {
@@ -208,7 +210,7 @@ export const useAuthStore = create<props>((set: any) => ({
     set({
       isAuthenticated: false,
       user: null,
-      error: error.message,
+      checkAuthError: error.message,
     });
   } finally {
     set({ isCheckingAuth: false });

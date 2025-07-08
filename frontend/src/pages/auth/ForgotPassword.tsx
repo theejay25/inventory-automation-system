@@ -1,13 +1,13 @@
 
 import { useState, type ChangeEvent } from "react";
 import { useAuthStore } from "../../store/authStore";
-import GlitchLoader from "../../components/react/Loader";
+import ButtonLoader from "../../components/react/ButtonLoader";
 
 function ForgotPassword() {
 
   const [email, setEmail] = useState("");
 
-  const { error, forgotPassword, isLoading } = useAuthStore();
+  const { formError, forgotPassword, isLoading } = useAuthStore();
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -57,12 +57,12 @@ function ForgotPassword() {
                   type="submit"
                   className="text-white w-full text-center p-3 mb-2 rounded-md bg-[#0A2463] flex justify-center items-center"
               >
-                  {isLoading ? <GlitchLoader /> : "Submit"}
+                  {isLoading ? <ButtonLoader /> : "Submit"}
               </button>
             </form>
 
-            {error && (
-              <p className="text-red-500 text-center mb-3">{error}</p>
+            {formError && (
+              <p className="text-red-500 text-center mb-3">{formError}</p>
             )}
           </div>
         </div>

@@ -1,13 +1,13 @@
 import { useState, type ChangeEvent } from "react"
 import { useAuthStore } from "../../store/authStore"
 import { useNavigate } from "react-router-dom"
-import GlitchLoader from "../../components/react/Loader"
+import ButtonLoader from "../../components/react/ButtonLoader"
 
 function VerifyEmailPage() {
 
     const [code, setCode] = useState('')
 
-    const {verifyEmail, user, isLoading, error} = useAuthStore()
+    const {verifyEmail, user, isLoading, formError} = useAuthStore()
 
     const navigate = useNavigate()
 
@@ -16,11 +16,11 @@ function VerifyEmailPage() {
         e.preventDefault()
 
         console.log(user)
-        console.log(error)
+        console.log(formError)
 
-        await verifyEmail(code)
+        const success = await verifyEmail(code)
 
-        if (!error) {
+        if (success) {
             navigate('/')
         }
 
@@ -53,11 +53,11 @@ function VerifyEmailPage() {
                                 type="submit"
                                 className="text-white w-full text-center p-3 mb-2 rounded-md bg-[#0A2463] flex justify-center items-center"
                             >
-                                {isLoading ? <GlitchLoader /> : "Verify"}
+                                {isLoading ? <ButtonLoader /> : "Verify"}
                             </button>
                         </form>
 
-                        {error && <p className="text-red-500 text-center">{error}</p>}
+                        {formError && <p className="text-red-500 text-center">{formError}</p>}
 
                     </div>
                 </div>

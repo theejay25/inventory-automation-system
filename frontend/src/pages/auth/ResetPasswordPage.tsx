@@ -1,7 +1,7 @@
 import { useState, type ChangeEvent } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { useAuthStore } from "../../store/authStore";
-import GlitchLoader from "../../components/react/Loader";
+import ButtonLoader from "../../components/react/ButtonLoader";
 
 function ResetPasswordPage() {
   const navigate = useNavigate();
@@ -9,7 +9,7 @@ function ResetPasswordPage() {
 
   const [password, setPassword] = useState("");
 
-  const { error, resetPassword, isLoading } = useAuthStore();
+  const { formError, resetPassword, isLoading } = useAuthStore();
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -64,12 +64,12 @@ function ResetPasswordPage() {
                   type="submit"
                   className="text-white w-full text-center p-3 mb-2 rounded-md bg-[#0A2463] flex justify-center items-center"
               >
-                  {isLoading ? <GlitchLoader /> : "SignIn"}
+                  {isLoading ? <ButtonLoader /> : "SignIn"}
               </button>
             </form>
 
-            {error && (
-              <p className="text-red-500 text-center mb-3">{error}</p>
+            {formError && (
+              <p className="text-red-500 text-center mb-3">{formError}</p>
             )}
           </div>
         </div>

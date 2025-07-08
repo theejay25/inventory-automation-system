@@ -10,7 +10,8 @@ import ResetPasswordPage from './pages/auth/ResetPasswordPage'
 import ForgotPassword from './pages/auth/ForgotPassword'
 
 import { useAuthStore } from './store/authStore'
-import { useEffect } from 'react'
+import { useEffect, useState } from 'react'
+import NotReady from './pages/Error/NotReady'
 
 type Props = {
   children: React.ReactNode
@@ -30,8 +31,9 @@ const ProtectedRoute = ({ children }: Props) => {
   return <>{children}</>;
 };
 
+const screenWidth = window.innerWidth
 
-
+console.log('screen width = ', screenWidth)
 
 function App() {
   
@@ -46,6 +48,23 @@ function App() {
   useEffect(() => {
     checkAuth()
   }, [checkAuth])
+
+  const [screenWidth, setScreenWidth] = useState(window.innerWidth);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setScreenWidth(window.innerWidth);
+    };
+
+    window.addEventListener('resize', handleResize);
+
+    // Clean up the listener when component unmounts:
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
+
+  if (screenWidth > 560 && screenWidth < 1024) {
+    return <NotReady />;
+  }
 
   return (
     <BrowserRouter>
