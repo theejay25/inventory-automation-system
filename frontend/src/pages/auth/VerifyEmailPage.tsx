@@ -2,10 +2,13 @@ import { useState, type ChangeEvent } from "react"
 import { useAuthStore } from "../../store/authStore"
 import { useNavigate } from "react-router-dom"
 import ButtonLoader from "../../components/react/ButtonLoader"
+import ToastModal from "../../components/react/ToastModal"
 
 function VerifyEmailPage() {
 
     const [code, setCode] = useState('')
+    const [error, setError] = useState(false)
+    const [sent, setSent] = useState('')
 
     const {verifyEmail, user, isLoading, formError} = useAuthStore()
 
@@ -16,18 +19,38 @@ function VerifyEmailPage() {
         e.preventDefault()
 
         console.log(user)
+        
+        const success = await verifyEmail(code)
+        
+        if (success) {
+            setSent('Your email has successfully been verified!')
+
+            setTimeout(() => {
+                navigate('/')
+            }, 2000)
+            return
+        }
+
         console.log(formError)
 
-        const success = await verifyEmail(code)
+        setError(true)
 
-        if (success) {
-            navigate('/')
-        }
+        setTimeout(() => {
+            setError(false)
+        }, 2000)
+
+
 
     }
 
   return (
     <>
+        <ToastModal classname={`toast-div left-[22vw] lg:left-[42vw] bg-red-500 ${error ? 'top-15 lg:top-25 opacity-100' : 'top-7 opacity-0' }`}>
+            {formError}
+        </ToastModal>
+        <ToastModal classname={`toast-div left-[18vw] lg:left-[40.5vw] bg-green-500 ${sent ? 'top-15 lg:top-25 opacity-100' : 'top-7 opacity-0' }`}>
+            {sent}
+        </ToastModal>
         <div className=" h-[100vh] flex justify-center items-center">
             <div className="bg-[#2c2c2c] p-3">
                 <div className="h-fit text-white font-semibold text-2xl py-3">Verify Email</div>
@@ -56,8 +79,6 @@ function VerifyEmailPage() {
                                 {isLoading ? <ButtonLoader /> : "Verify"}
                             </button>
                         </form>
-
-                        {formError && <p className="text-red-500 text-center">{formError}</p>}
 
                     </div>
                 </div>

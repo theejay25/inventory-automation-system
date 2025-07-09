@@ -7,6 +7,7 @@ import ToastModal from "../../components/react/ToastModal"
 function SignupPage() {
 
     const [sent, setSent] = useState('')
+    const [error, setError] = useState(false)
     const [name, setName] = useState('')
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
@@ -21,21 +22,26 @@ function SignupPage() {
 
     console.log(user)
 
+    
+    const success =  await signup(name, email, password)
+    
+      if (success) {
+          setSent('A verification token has ben sent to Your email')
+      
+              setTimeout(() => {
+                  navigate('/verify-email');
+              }, 2500)
+
+        return
+    }        
+
+    setError(true)
+
+    setTimeout(() => {
+        setError(false)
+    }, 2000)
+
     console.log(formError)
-
-    await signup(name, email, password)
-
-      if (formError) {
-        setSent('A verification token has been sent to your email'); // don't show success message
-        return; // stop here if there's an error
-    }
-
-
-    setSent('A verification token has ben sent to Your email')
-
-        setTimeout(() => {
-            navigate('/verify-email');
-        }, 2500)
     
   }
 
@@ -43,8 +49,11 @@ function SignupPage() {
 
   return (
     <>
-        <ToastModal classname={` ${formError ? 'bg-red-500 top-10 lg:left-[42vw]' : 'bg-green-400 top-10 lg:left-[40vw]'} toast-div top-6 left-26`} >
-            {formError ? formError : sent}
+        <ToastModal classname={` ${error ? 'bg-red-500 top-10' : 'top-6 opacity-0'} toast-div left-26 lg:left-[42vw]`} >
+            {formError}
+        </ToastModal>
+        <ToastModal classname={` ${sent ? 'bg-green-500 top-15' : 'top-6 opacity-0'} toast-div left-16.5 lg:left-[40vw]`} >
+           {sent}
         </ToastModal>
         <div className=" h-[100vh] flex justify-center items-center">
             <div className="bg-[#2c2c2c] p-3">
