@@ -7,9 +7,11 @@ import { useLocation } from "react-router-dom";
 
 
 // icons
-import { MdOutlineDashboard, MdAdd } from "react-icons/md"
+import { MdOutlineDashboard, MdAdd, MdOutlineAdminPanelSettings } from "react-icons/md"
 import { LuClipboardList, LuClipboardPaste } from "react-icons/lu";
 import { AiOutlineStock } from "react-icons/ai";
+import { FaRegUser } from "react-icons/fa";
+
 
 type props = {
   classname?: string;
@@ -23,20 +25,22 @@ function SideMenu({classname}: props) {
   const location = useLocation();
 
      const navigate = useNavigate()
-  const { logout, error, message } = useAuthStore()
+  const { logout, formError, message } = useAuthStore()
 
   const handleClick = async () => {
     await logout()
-    if (!error) {
+    if (!formError) {
       navigate('/')
     } else {
-      console.log(error)
+      console.log(formError)
     }
     console.log(message)
   }
 
 const paths = [
   { name: "Dashboard", path: "dashboard", icon: <MdOutlineDashboard /> },
+  { name: "Users", path: "users", icon: <FaRegUser /> },
+  { name: "Admins", path: "admins", icon: <MdOutlineAdminPanelSettings /> },
   { name: "Add Products", path: "add-products", icon: <MdAdd /> },
   { name: "Products", path: "products", icon: <LuClipboardList /> },
   { name: "Stock Logs", path: "stock-logs", icon: <AiOutlineStock /> },
@@ -71,12 +75,12 @@ const paths = [
                 <FaX />
             </div>
 
-            <div className="lg:w-fit lg:ml-15">
-            <h1 className="font-semibold text-center tracking-wider text-lg mt-3 lg:ml-15 lg:mt-20 lg:text-3xl lg:tracking-widest">QUICKSHELF</h1>
-            <p className="text-center text-lg tracking-wider lg:text-2xl lg:ml-15">Smart inventory</p>
+            <div className="lg:w-fit lg:mt-0 mt-8">
+            <h1 className="font-semibold text-center tracking-wider text-lg mt-3 lg:mt-20 lg:text-3xl lg:tracking-widest">QUICKSHELF</h1>
+            <p className="text-center text-lg tracking-wider lg:text-2xl ">Smart inventory</p>
 
-            <div className=" w-full h-[45vh] mt-13 lg:h-[50vh] flex justify-center items-center">
-             <ul className={`${isOpen ? "ul-div" : ''}`}>
+            <div className=" w-full h-[45vh] mt-20 lg:h-[50vh] flex justify-center items-center">
+             <ul className={` w-[45vw] ${isOpen ? "ul-div" : ''}`}>
                 {paths.map((item) => (
                    <li key={item.name} className={`sidemenu-list ${activeClass(item.path) ? 'sidemenu-list-active duration-0' : ''}`}>
                     <Link to={`/admin-dashboard/${item.path}`} className="flex flex-row justify-center items-center">

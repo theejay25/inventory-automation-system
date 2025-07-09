@@ -1,9 +1,9 @@
 @layer {
     .x-side-div {
-        @apply p-5  mt-1 h-fit w-fit ml-[34vw] cursor-pointer lg:hidden
+        @apply p-5 mt-1 h-fit w-fit ml-[35vw] cursor-pointer lg:hidden
     }
 
     .logout-btn {
-        @apply p-3 bg-red-500 text-white capitalize font-semibold text-xl absolute bottom-25 left-10 lg:left-[10vw] lg:bottom-[10vh]
+        @apply p-3 bg-red-500 text-white capitalize font-semibold text-xl absolute w-[45vw] bottom-4 left-2 lg:left-[1vw] lg:bottom-[3vh] lg:w-[25vw] cursor-pointer
     }
 }

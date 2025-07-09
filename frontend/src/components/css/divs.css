@@ -1,10 +1,10 @@
 @layer {
     .side-div {
-        @apply bg-[#0A2463] w-[45vw] h-full top-0 duration-150 fixed z-100 lg:left-0 lg:w-[100vw] p-0
+        @apply border-r-1 w-[49vw] bg-[#1a1a1a] h-full p-0 top-0 duration-150 fixed z-100 lg:left-0 lg:w-[27vw]
     }
 
     .ul-div {
-        @apply w-[100vw] p-5 text-start  text-xl lg:text-3xl ml-50 lg:w-[25vw] fixed lg:ml-[0vw] md:ml-[-4vw]
+        @apply  p-5 text-start text-xl lg:text-3xl lg:w-[27vw] flex justify-center flex-col items-center 
     }
 
     .toast-div {
