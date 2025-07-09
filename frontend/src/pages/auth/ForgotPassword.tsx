@@ -1,11 +1,15 @@
 
 import { useState, type ChangeEvent } from "react";
 import { useAuthStore } from "../../store/authStore";
+
+//components
 import ButtonLoader from "../../components/react/ButtonLoader";
+import ToastModal from "../../components/react/ToastModal";
 
 function ForgotPassword() {
 
   const [email, setEmail] = useState("");
+  const [sent, setSent] = useState('')
 
   const { formError, forgotPassword, isLoading } = useAuthStore();
 
@@ -20,11 +24,25 @@ function ForgotPassword() {
       return;
     }
 
-    alert("Password reset email successfully sent!");
+    setSent("Password reset email successfully sent!");
+
+    setTimeout(() => {
+      setSent('')
+    }, 2000)
   };
 
   return (
     <>
+
+      <div>
+        <ToastModal classname={`toast-div bg-red-500 ${formError ? 'top-25 opacity-100' : 'top-7 opacity-0' }`}>
+            {formError}
+        </ToastModal>
+        <ToastModal classname={`toast-div bg-green-500 ${sent ? 'top-25 opacity-100' : 'top-7 opacity-0' }`}>
+            {sent}
+        </ToastModal>
+      </div>
+      
       <div className="h-[100vh] flex justify-center items-center">
         <div className="bg-[#2c2c2c] p-3">
           <div className="h-fit text-white font-semibold text-2xl py-3">
@@ -37,7 +55,7 @@ function ForgotPassword() {
                   htmlFor="Email"
                   className="block mb-1 text-[#fcfcfc] font-semibold"
                 >
-                  Password
+                  Email
                 </label>
                 <input
                   name="Email"
@@ -61,9 +79,7 @@ function ForgotPassword() {
               </button>
             </form>
 
-            {formError && (
-              <p className="text-red-500 text-center mb-3">{formError}</p>
-            )}
+            
           </div>
         </div>
       </div>

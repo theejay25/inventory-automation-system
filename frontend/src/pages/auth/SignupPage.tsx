@@ -49,12 +49,15 @@ function SignupPage() {
 
   return (
     <>
-        <ToastModal classname={` ${error ? 'bg-red-500 top-10' : 'top-6 opacity-0'} toast-div left-26 lg:left-[42vw]`} >
-            {formError}
-        </ToastModal>
-        <ToastModal classname={` ${sent ? 'bg-green-500 top-15' : 'top-6 opacity-0'} toast-div left-16.5 lg:left-[40vw]`} >
-           {sent}
-        </ToastModal>
+        <div className="w-full flex justify-center">
+            <ToastModal classname={` ${error ? 'bg-red-500 top-10' : 'top-6 opacity-0'} toast-div `} >
+                {formError}
+            </ToastModal>
+            <ToastModal classname={` ${sent ? 'bg-green-500 top-15' : 'top-6 opacity-0'} toast-div `} >
+            {sent}
+            </ToastModal>
+        </div>
+        
         <div className=" h-[100vh] flex justify-center items-center">
             <div className="bg-[#2c2c2c] p-3">
                 <div className="h-fit text-white font-semibold text-2xl py-3">SignUp</div>

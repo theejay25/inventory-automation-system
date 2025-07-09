@@ -1,4 +1,4 @@
-import { useEffect, useState, type ChangeEvent } from "react"
+import { useState, type ChangeEvent } from "react"
 import { Link, useNavigate } from "react-router-dom"
 import { useAuthStore } from "../../store/authStore"
 import ButtonLoader from "../../components/react/ButtonLoader"
@@ -23,7 +23,7 @@ function SigninPage() {
       const result: any = await login(email, password);
 
         if (!result.success) {
-        alert(result.error || 'Login failed');
+        // alert(result.error || 'Login failed');
         return;
         }
 
@@ -35,25 +35,21 @@ function SigninPage() {
         }
     }
 
-    const [check, setCheck] = useState(false)
-
-    useEffect (() => {
-        setTimeout(() => {
-            setCheck(true)
-        }, 2000)
-    }, [])
 
   return (
     <>
-           { formError && (<ToastModal classname={`${check ? ' toast-div top-10 left-26 lg:left-[42vw] bg-red-500 opacity-100' : 'left-26 lg:left-[42vw] top-7 opacity-0'}`} >
+        <div className="w-full flex justify-center">
+           { formError && (<ToastModal classname={`${formError ? ' toast-div top-10 bg-red-500 opacity-100' : 'left-26 lg:left-[42vw] top-7 opacity-0'}`} >
                 <p>{formError}</p>
             </ToastModal>)}
+        </div>
+        
         <div className=" h-[100vh] flex justify-center items-center">
             <div className="bg-[#2c2c2c] p-3">
                 <div className="h-fit text-white font-semibold text-2xl py-3">SignIn</div>
                 <div className="w-full flex justify-center flex-col items-center">
                     <div className="">
-                        <form action="" className="w-85" autoComplete="off" onSubmit={handleSubmit}>
+                        <form className="w-85" autoComplete="off" onSubmit={handleSubmit}>
                             
                             <div>
                                 <label htmlFor="email" className="block mb-1 text-[#fcfcfc] font-semibold">Email</label>

@@ -80,7 +80,7 @@ export const useAuthStore = create<props>((set: any) => ({
 
     login: async (email: string, password: string): Promise<{} | null> => {
 
-        set({isLoading: true, user: null, formError: null, isCheckingAuth: true, isAuthenticated: false, role: null})
+        set({isLoading: true, user: null, formError: null, isAuthenticated: false, role: null})
 
    try {
     const response = await axios.post(`${serverUrl}/login`, { email, password }, { withCredentials: true });

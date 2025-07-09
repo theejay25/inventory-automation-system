@@ -2,12 +2,14 @@ import { useState, type ChangeEvent } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { useAuthStore } from "../../store/authStore";
 import ButtonLoader from "../../components/react/ButtonLoader";
+import ToastModal from "../../components/react/ToastModal";
 
 function ResetPasswordPage() {
   const navigate = useNavigate();
   const { token } = useParams(); // ✅ get token from URL
 
   const [password, setPassword] = useState("");
+  const [sent, setSent] = useState('')
 
   const { formError, resetPassword, isLoading } = useAuthStore();
 
@@ -22,16 +24,29 @@ function ResetPasswordPage() {
     const response: any = await resetPassword(password, token);
 
     if (!response.success) {
-      alert(response.message || "Error resetting password");
+      // alert(response.message || "Error resetting password");
       return;
     }
 
-    alert("Password reset successfully!");
-    navigate("/");
+    setSent("password successfully reset! Proceed to login");
+
+    setTimeout(() => {
+      navigate("/");
+    }, 2000)
   };
 
   return (
     <>
+
+    <div className="w-full flex justify-center">
+      <ToastModal classname={`toast-div bg-red-500 ${formError ? 'top-25 opacity-100' : 'top-7 opacity-0'}`}>
+          {formError}
+      </ToastModal>
+      <ToastModal classname={`toast-div bg-green-500 ${sent ? 'top-25 opacity-100' : 'top-7 opacity-0'}`}>
+        {sent}
+      </ToastModal>
+    </div>
+
       <div className="h-[100vh] flex justify-center items-center">
         <div className="bg-[#2c2c2c] p-3">
           <div className="h-fit text-white font-semibold text-2xl py-3">
@@ -67,10 +82,7 @@ function ResetPasswordPage() {
                   {isLoading ? <ButtonLoader /> : "SignIn"}
               </button>
             </form>
-
-            {formError && (
-              <p className="text-red-500 text-center mb-3">{formError}</p>
-            )}
+            
           </div>
         </div>
       </div>

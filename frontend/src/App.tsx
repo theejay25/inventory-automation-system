@@ -64,6 +64,8 @@ function App() {
   }
 
   return (
+
+    
     <BrowserRouter>
       <Routes>
         <Route path='/signup' element={<AuthuserRoute><SignupPage /></AuthuserRoute>} />
