@@ -4,10 +4,30 @@
     }
 
     .ul-div {
-        @apply  p-5 text-start text-xl lg:text-3xl lg:w-[27vw] flex justify-center flex-col items-center 
+        @apply  p-5 text-xl lg:text-3xl lg:w-[27vw] flex justify-center flex-col items-center 
+    }
+
+    .side-profile-div {
+        @apply  mt-20 w-[45vw] cursor-pointer mb-1 p-5 text-xl lg:mb-[-2px] lg:text-3xl lg:w-[25vw] rounded-md capitalize flex justify-start items-center gap-6
+    }
+
+    .side-profile-div:hover {
+        @apply bg-white text-black duration-100
     }
 
     .toast-div {
         @apply fixed min-w-50 text-center p-3  rounded-md text-white duration-300
+    }
+
+    .nav-bar {
+        @apply w-full flex px-3 flex-row justify-between items-center lg:px-9 lg:w-[74vw] lg:ml-[26vw]  border-b-1 h-[7vh] lg:z-100 lg:justify-end 
+    }
+
+    .main-area {
+        @apply bg-red-500 min-h-[93vh] lg:w-[73vw] lg:ml-[27vw]
+    }
+
+    .profile-modal {
+        @apply bg-[#2c2c2c] p-5 rounded-md h-fit w-fit text-white absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 lg:-translate-x-[-10vw]
     }
 }

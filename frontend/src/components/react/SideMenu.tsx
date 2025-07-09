@@ -10,7 +10,7 @@ import { useLocation } from "react-router-dom";
 import { MdOutlineDashboard, MdAdd, MdOutlineAdminPanelSettings } from "react-icons/md"
 import { LuClipboardList, LuClipboardPaste } from "react-icons/lu";
 import { AiOutlineStock } from "react-icons/ai";
-import { FaRegUser } from "react-icons/fa";
+import { FaRegUser, FaRegUserCircle } from "react-icons/fa";
 
 
 type props = {
@@ -79,12 +79,17 @@ const paths = [
             <h1 className="font-semibold text-center tracking-wider text-lg mt-3 lg:mt-20 lg:text-3xl lg:tracking-widest">QUICKSHELF</h1>
             <p className="text-center text-lg tracking-wider lg:text-2xl ">Smart inventory</p>
 
-            <div className=" w-full h-[45vh] mt-20 lg:h-[50vh] flex justify-center items-center">
+            <div className=" w-full h-[45vh] mt-20 lg:h-[50vh] flex flex-col justify-center items-center">
+
+            <div className="side-profile-div">
+              <FaRegUserCircle />  profile
+            </div>
+
              <ul className={` w-[45vw] ${isOpen ? "ul-div" : ''}`}>
                 {paths.map((item) => (
                    <li key={item.name} className={`sidemenu-list ${activeClass(item.path) ? 'sidemenu-list-active duration-0' : ''}`}>
-                    <Link to={`/admin-dashboard/${item.path}`} className="flex flex-row justify-center items-center">
-                      <span className="icon">{item.icon}</span>
+                    <Link to={`/admin-dashboard/${item.path}`} className="flex flex-row justify-center items-center gap-6">
+                      <span>{item.icon}</span>
                       <span>{item.name}</span>
                     </Link>
                   </li>

@@ -1,6 +1,6 @@
 @layer {
     .sidemenu-list {
-        @apply text-xl w-full py-5 flex justify-start lg:text-3xl px-5 cursor-pointer rounded-md
+        @apply text-xl w-full py-5 flex justify-start lg:text-3xl px-5 cursor-pointer rounded-md mb-1
     }
 
     .sidemenu-list:hover {
@@ -9,9 +9,5 @@
 
     .sidemenu-list-active {
         @apply bg-[#fff] text-black duration-100
-    }
-    
-    .icon {
-        @apply inline mr-2 lg:mr-6
     }
 }
