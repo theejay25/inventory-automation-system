@@ -24,7 +24,7 @@
     }
 
     .main-area {
-        @apply bg-red-500 min-h-[93vh] lg:w-[73vw] lg:ml-[27vw]
+        @apply min-h-[93vh] lg:w-[73vw] lg:ml-[27vw]
     }
 
     .profile-modal {

@@ -3,7 +3,7 @@ import { useState, type ChangeEvent } from "react";
 import { useAuthStore } from "../../store/authStore";
 
 //components
-import ButtonLoader from "../../components/react/ButtonLoader";
+import ButtonLoader from "../../components/react/loaders/ButtonLoader";
 import ToastModal from "../../components/react/ToastModal";
 
 function ForgotPassword() {

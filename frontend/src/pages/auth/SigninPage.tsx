@@ -1,7 +1,7 @@
 import { useState, type ChangeEvent } from "react"
 import { Link, useNavigate } from "react-router-dom"
 import { useAuthStore } from "../../store/authStore"
-import ButtonLoader from "../../components/react/ButtonLoader"
+import ButtonLoader from "../../components/react/loaders/ButtonLoader"
 import ToastModal from "../../components/react/ToastModal"
 
 function SigninPage() {

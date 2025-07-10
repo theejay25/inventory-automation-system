@@ -18,6 +18,7 @@ type props = {
     forgotPassword: (email: string) => Promise<{} | null>
     resetPassword: (password: string, token: string) => Promise<{} | null>
     checkAuth: () => Promise<void>
+    updateUser: (name: string, id: string) => Promise<{} | null>
 }
 
 const serverUrl = 'http://localhost:8080/api/auth'
@@ -215,6 +216,38 @@ export const useAuthStore = create<props>((set: any) => ({
   } finally {
     set({ isCheckingAuth: false });
   }
+  },
+
+  updateUser: async (name: string, id: string): Promise<{} | null> => {
+    set({isLoading: true})
+
+    try {
+      
+      const response = await axios.put(`${serverUrl}/update-user/${id}`, {name}, {withCredentials: true})
+
+      if(response.data.success) {
+        set({
+          isLoading: false,
+          user: response.data.user
+        })
+         return response.data.user || {}
+      } else {
+        set({
+          isLoading: false,
+          user: null,
+          formError: response.data.message || 'Error in User update'
+        })
+        return null
+      }
+
+    } catch (error: any) {
+      console.log(error)
+      set({
+        isLoading: false,
+        formError: error.message
+      })
+      return null
+    }
   }
 
 

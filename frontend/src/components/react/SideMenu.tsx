@@ -15,10 +15,11 @@ import { FaRegUser, FaRegUserCircle } from "react-icons/fa";
 
 type props = {
   classname?: string;
+  onclick?: React.MouseEventHandler<HTMLDivElement>
 }
 
 
-function SideMenu({classname}: props) {
+function SideMenu({classname, onclick}: props) {
   
   const {close, isOpen} = useMenuStore()
   
@@ -81,7 +82,7 @@ const paths = [
 
             <div className=" w-full h-[45vh] mt-20 lg:h-[50vh] flex flex-col justify-center items-center">
 
-            <div className="side-profile-div">
+            <div className="side-profile-div" onClick={onclick}>
               <FaRegUserCircle />  profile
             </div>
 

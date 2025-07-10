@@ -1,7 +1,7 @@
 import { useState, type ChangeEvent } from "react"
 import { useAuthStore } from "../../store/authStore"
 import { useNavigate } from "react-router-dom"
-import ButtonLoader from "../../components/react/ButtonLoader"
+import ButtonLoader from "../../components/react/loaders/ButtonLoader"
 import ToastModal from "../../components/react/ToastModal"
 
 function VerifyEmailPage() {

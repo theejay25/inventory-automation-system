@@ -1,5 +1,5 @@
 // GlitchLoader.tsx
-import '../css/loader.css'
+import '../../css/loaders/loader.css'
 
 export default function GlitchLoader() {
   return (

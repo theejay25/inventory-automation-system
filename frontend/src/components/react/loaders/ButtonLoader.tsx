@@ -1,4 +1,4 @@
-import '../css/buttonloader.css'
+import '../../css/loaders/buttonloader.css'
 
 function ButtonLoader() {
   return (
