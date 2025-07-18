@@ -16,7 +16,7 @@
     }
 
     .toast-div {
-        @apply fixed min-w-50 text-center p-3  rounded-md text-white duration-300
+        @apply fixed min-w-50 text-center p-3  rounded-md text-white duration-300 z-50
     }
 
     .nav-bar {

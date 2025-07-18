@@ -1,6 +1,6 @@
-import React from 'react'
 
 function StockLogs() {
+  console.log('working')
   return (
     <div>StockLogs</div>
   )

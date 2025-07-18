@@ -230,22 +230,31 @@ export const useAuthStore = create<props>((set: any) => ({
           isLoading: false,
           user: response.data.user
         })
-         return response.data.user || {}
+        console.log(response.data.user)
+        return response.data.user
       } else {
         set({
           isLoading: false,
           user: null,
           formError: response.data.message || 'Error in User update'
         })
+        setTimeout(() => {
+          set({formError: ''})
+        }, 2000);
+        console.log(response.data.message)
         return null
       }
-
+      
     } catch (error: any) {
       console.log(error)
       set({
         isLoading: false,
         formError: error.message
       })
+      setTimeout(() => {
+        set({formError: ''})
+      }, 2000);
+      console.log(error.message)
       return null
     }
   }

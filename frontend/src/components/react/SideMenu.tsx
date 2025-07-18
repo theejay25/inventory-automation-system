@@ -1,7 +1,7 @@
 import { FaX } from "react-icons/fa6";
 import { useMenuStore } from "../../store/menuStore";
 import { useAuthStore } from "../../store/authStore";
-import { Link, useNavigate, useParams } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useLocation } from "react-router-dom";
 
 
@@ -49,9 +49,7 @@ const paths = [
 ];
 
 
-  const params = useParams()
 
-  console.log(params)
 
     const activeClass = (pathName: string) => {
     const currentPath = location.pathname;

@@ -1,6 +1,6 @@
-import React from 'react'
 
 function Sales() {
+  console.log('ritght:')
   return (
     <div>Sales</div>
   )

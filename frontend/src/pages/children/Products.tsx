@@ -1,6 +1,6 @@
-import React from 'react'
 
 function Products() {
+  console.log('here')
   return (
     <div>Products</div>
   )
